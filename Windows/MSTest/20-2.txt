@@ -1,0 +1,1 @@
+%# # ldapsearch -W -x -D cn=Users,dc=devopslabs,dc=com -b "dc=devopslabs,dc=com" "(uid=user1)"

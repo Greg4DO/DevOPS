@@ -1,0 +1,103 @@
+    1  sudo -i
+    2  ssh -i "AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+    3  ls -la
+    4  chmod 400 AWS_key1.pem
+    5  ls -la
+    6  ssh -i "AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+    7  ls -la
+    8  ssh-keygen -t rsa
+    9  ls -la
+   10  ssh -i "AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   11  ssh -i "/home/greg/Documents/AWS/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   12  ssh-copy-id <username>@<host> ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   13  ssh-copy-id ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   14  cat ~/.ssh/id_rsa.pub | ssh ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com "cat >>  ~/.ssh/authorized_keys"
+   15  ls -la
+   16  chmod 400 id_rsa
+   17  ssh-copy-id ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   18  ls -la
+   19  chmod 500 id_rsa
+   20  ls -la
+   21  chmod 600 id_rsa
+   22  ls -la
+   23  cat id_rsa.pub 
+   24  ssh -i "/home/greg/Documents/AWS/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   25  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   26  ls -la
+   27  chmod 400 id_rsa.pub
+   28  ssh -i "/home/greg/Documents/AWS/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   29  ssh-copy-id ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   30  ls -la
+   31  chmod 400 id_rsa
+   32  ls -la
+   33  ssh-copy-id ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   34  ssh -i "/home/greg/Documents/AWS/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   35  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   36  mc
+   37  ls -la
+   38  vagrant -v
+   39  apt-get update
+   40  apt-get upgrade
+   41  sudo apt-get install virtualbox-dkms
+   42  sudo apt-get remove virtualbox-dkms
+   43  sudo apt-get purge virtualbox-dkms
+   44  sudo apt-get remove virtualbox
+   45  sudo apt-get purge virtualbox
+   46  sudo apt-get remove virtualbox*
+   47  sudo apt-get purge virtualbox*
+   48  sudo apt-get remove vagrant
+   49  sudo apt-get purge vagrant
+   50  sudo apt-get remove vagrant*
+   51  sudo apt-get purge vagrant*
+   52  vagrant -v
+   53  viryualbox -v
+   54  virtualbox -v
+   55  vagrant
+   56  vagrant init centos/7; vagrant up --provider virtualbox
+   57  mc
+   58  cd /media/greg/ls
+   59  cd /media/greg ls
+   60  cd 01CDB9942CF87070/
+   61  cd DevOps/
+   62  cd VMs/
+   63  vagrant init centos/7; vagrant up --provider virtualbox
+   64  cd /media/greg/01CDB9942CF87070/DevOps/VMs/.vagrant/machines/default/virtualbox/
+   65  ls -la
+   66  chmod 0600 private_key 
+   67  ls -la
+   68  chmod 600 private_key 
+   69  ls -la
+   70  chmod 0600 private_key 
+   71  ls -la
+   72  ssh -i "/home/greg/Documents/AWS/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   73  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   74  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
+   75  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com
+   76  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
+   77  vagrant status
+   78  ssh greg@10.0.2.15
+   79  ping 10.0.2.15
+   80  vagrant ssh
+   81  sudo -i
+   82  cd /home/
+   83  cd greg
+   84  cd .ssh/
+   85  chmod 600 private_key 
+   86  ls -la
+   87  vagrant ssh private_key_path /home/greg/.ssh/private_key 
+   88  mc
+   89  df -h
+   90  mc
+   91  cd ..
+   92  cd Vagrant/
+   93  vagrant init centos/7; vagrant up --provider virtualbox
+   94  vagrant ssh
+   95  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
+   96  vagrant ssh
+   97  vagrant init ubuntu/xenial64; vagrant up --provider virtualbox
+   98  mc
+   99  vagrant destroy
+  100  ssh -i "/home/greg/.ssh/id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
+  101  mc
+  102  history
+  103  history >/home/greg/history.txt

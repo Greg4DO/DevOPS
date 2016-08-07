@@ -1,0 +1,197 @@
+wi-fi: KmdsdTgfv
+vm on 2012r2
+
+AWS
+1.EC2
+User name	Administrator
+Password	e.7fKrXbMx	Kg7cYQx35X	&jW;JS552y
+
+
+1. updates 1 в три дня в 15-00. ставить но не перегружать. ставить c mydomain.com
+2. в чем разница между full и modify permissions.
+	full - доступ c возможностью изменять права и правила аудита к папкам и файлам
+3. calc.exe зарегить как сервис и запустить от отличного от local system пользователя. (sc in PS)
+	sc create CalcService Displayname="CalcService" binpath="C:\Windows\system32\calc.exe"
+4. почему мало сделать export registry.
+	пропадают права
+5. как востановить права на ветку CurrentControlSet
+	backup: subInACL /noverbose /output=C:\T\Software.txt /subkeyreg HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet /display=sddl
+	restore: subInACL /playfile C:\T\Software.txt
+
+kernel mode -> services
+user mode -> programs
+
+
+AD objects: Ресурси, служби, облікові записи
+Forest, Tree
+
+
+
+
+
+2 DCs + ports currpot
+
+user1 user2
+group1 group2
+
+user1 - group1, users
+user2- group2, rdusers, users
+
+200 MB new disk copy C:\Work to disk D with permissions
+
+термін дії паролю 3 дні
+disable enforce password
+rdp лишити але доступу нема
+
+
+C:\Work\ file1 file2
+file1 - user1
+file2 -user2
+
+
+
+
+53, 80, 88, 135, 389, 636
+53.88.123
+
+load balancing also used like port forwarding
+
+
+new user in domain
+start calc run as from new user
+
+change data by duser
+runas /user:devopslabs\duser "control C:\Windows\System32\timedate.cpl"
+time 14:00
+
+install IIS
+
+bindings: IP, Name, Port
+
+
+new FTP site
+1 local 1domain user folders
+upload and download files
+
+
+
+FTP Site 2 users 1domain 1local
+2 web site 1site from local 1 from domain user
+html calc.exe
+C:TempLocal C:TempDomain
+Security for site
+2 app  ploos from Network Service account
+upload from dc
+
+
+!!!Conditional forwarders
+Zone (google.com) -> DNS who knows where (8.8.8.8)
+
+Delegation control
+DNS Server who can manage my Zone
+
+
+
+begin tran t1;
+select * from table;
+update table set id=33 where name=alan;
+commit/rollback;
+
+
+Create login, create db, create table (id,name,value)
+insert 20000 random entries
+Set db maxsize 20 Mb
+Set CP1252 collation on instance
+
+Додати ключ в реєстрі через cmd
+REG ADD HKLM\Software\MyCo
+REG ADD HKLM\Software\MyCo /v Data /t REG_BINARY /d fe340ead
+REG ADD HKLM\Software\MyCo /v MRU /t REG_MULTI_SZ /d fax\0mail\0\0
+REG ADD HKLM\Software\MyCo /v Path /t REG_EXPAND_SZ /d ^%systemroot^%
+REG DELETE HKLM\Software\MyCo
+
+
+ODBC
+
+HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\
+
+
+
+
+
+DevOps 
+Developer - Build - Test - Deploy - Client
+Build - Test - Deploy -> DevOps
+Operations - internal (кухня)
+Service - external (офіціант)
+CI/CD (Continous Integration, Continous Delivery/Deployment)
+CI - зібрати збірку (збілдати), відтестувати
+CDeployment - впровадження оновлень в мінімальний час простою сервісу.
+CDelivery - всі ці елементи впроваджувати в мінімальний час максимально автоматизовано.
+CM (Configuration Management) - HardWare (System Administration), virtualization, cloud, Orchestration(tools for virtualization (Chef, Puppet, Ansible, Vagrant)), Automation.
+
+chroot - юзер не зможе вийте вище директорією
+
+File System
+/tmp - sticky bit, чиститься після ребуту - temporary files
+/etc - config files
+/bin - user binaries
+/sbin - system binaries
+/dev - device files
+/proc - proccess information, можна напряму звертатись до процесів, єдиний шлях відновити щойно вбитий файл
+/var - variable files
+/usr - user programs
+/home - home dirictories
+/boot - bott loader files
+/lib - system libraries
+/opt - otional add-ons
+/mnt- mount directory
+/media - removable devices
+/srv - service data
+/sys - несконфігуровані пристрої
+
+File types
+file, directory, link, charachter device, block device, sockets, pipline
+inodes - вся інформація про файли, ім’я знаходиться в каталозі.
+soft link - може посилатись на зовнішню файлову систему, можна посилатись на каталог, нічого не говорить про атрибути оригінального файлу і його права.
+hard link - друге ім’я файлу, не мапиться на каталог чи на зовнішній девайс
+block device - disks, network (напряму звертатись не можем)
+charachter device - dev/tti, dev/con, dev/zero, dev/urandom, 
+Перехід між блочним пристроєм і файлом - команда dd
+pipeline - канали вводу/виводу даних (stdout/stdin)
+socket - програмний канал, в основному використовується для мереж //xinetd (запуск програми по зверненню до порта)
+
+SSH
+Remote console (on server install sshd, credentials, shell, port) /etc/passwd
+Remote copy (scp, rsync) (scp /tmp/test copy to user@host:/dir)
+Remote execution (ssh user@host "command")
+Port forwarding (local port forward to remote port) (ssh reverse proxy)
+Tunneling пов’язано з PF
+Authorization mechanism (паролями, ключами) public key - замок, secret - ключ, passphrase - шифрування ключа паролем; утиліта ssh-keygen; з secret можна відновити public; (локально треба мати каталог .ssh з правами 500, всередині файл id_rsa з правами 400) ; ssh -vvvv
+Ready for subsystems  
+config file /etc/ssh/ssh.config
+
+
+home task: install Vagrant(репозиторій VagrantBox, також є на GitHub), install Centos_64 on virtualbox, install Ansible, create knowledge base (KB) in cloud, GitHub, putty
+Згенерувати ключ і підключитись ним по ssh
+Файл /home/user/.ssh/Authorized keys
+
+man ssh
+w - connections to host
+
+Vbox vagrant - Ubuntu, CentOS
+AWS - Ubuntu(ssh port 22055)
+Access to AWS Ubuntu from Vbox via ssh
+on Vbox ssh port forwarding to AWS; from Internet connect to AWS and forward to Vbox
+
+
+vagrant status
+vagrant ssh
+
+reverse channel:
+remote to server
+cat .ssh/id_rsa.pub >> .ssh/authorized_keys
+ssh root@localhost //test is it possible
+ssh -D 8899 root@localhost //dynamicaly port forward (comes from any port to 8899)
+ssh root@server
+ssh 5555:localhost:8899 root@server //

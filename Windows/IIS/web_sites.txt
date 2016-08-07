@@ -1,0 +1,28 @@
+Import-Module WebAdministration
+
+##Creating AppPools
+New-Item IIS:\AppPools\LocalPool -Verbose:$false | Out-Null
+New-Item IIS:\AppPools\DomainPool -Verbose:$false | Out-Null
+
+$LocalPool = Get-Item IIS:\AppPools\LocalPool
+$LocalPool | set-itemproperty -Name "managedRuntimeVersion" -Value "v4.0"
+$LocalPool | set-itemproperty -Name "managedPipelineMode" -Value "Integrated" 
+$LocalPool.processModel.identityType = "NetworkService"
+$LocalPool| set-item
+
+$DomainPool = Get-Item IIS:\AppPools\DomainPool
+$DomainPool | set-itemproperty -Name "managedRuntimeVersion" -Value "v4.0"
+$DomainPool | set-itemproperty -Name "managedPipelineMode" -Value "Integrated" 
+$DomainPool.processModel.identityType = "NetworkService"
+$DomainPool| set-item
+
+##Creating Websites
+New-WebSite -Name LocalSite -PhysicalPath c:\Temp\FTP\LocalUser\localftp
+Set-ItemProperty IIS:\Sites\LocalSite -name  Bindings -value @{protocol="http";bindingInformation="*:8080:localsite.devopslabs.com"}
+Set-WebConfigurationProperty system.webServer/security/authentication/anonymousauthentication -PSPath 'IIS:\' -Location "LocalSite" -Name userName -Value "localftp" -Verbose
+Add-WebConfiguration //defaultDocument/files "IIS:\Sites\LocalSite" -atIndex 0 -Value @{value="hello.html"}
+
+New-WebSite -Name DomainSite -PhysicalPath c:\Temp\FTP\devopslabs\domainftp
+Set-ItemProperty IIS:\Sites\DomainSite -name  Bindings -value @{protocol="http";bindingInformation="*:8081:domainsite.devopslabs.com"}
+Set-WebConfigurationProperty system.webServer/security/authentication/anonymousauthentication -PSPath 'IIS:\' -Location "DomainSite" -Name userName -Value "devopslabs\domainftp" -Verbose
+Add-WebConfiguration //defaultDocument/files "IIS:\Sites\DomainSite" -atIndex 0 -Value @{value="hello.html"}
