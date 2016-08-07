@@ -1,0 +1,62 @@
+$target = "c:\Temp\FTP"
+$localfolder = "c:\Temp\FTP\LocalUser"
+$domainfolder = "c:\Temp\FTP\devopslabs"
+$localuserfolder = "c:\Temp\FTP\LocalUser\localftp"
+$domainuserfolder = "c:\Temp\FTP\devopslabs\domainftp"
+
+# Create the folders
+New-Item $target -itemType directory
+New-Item $localfolder -itemType directory
+New-Item $domainfolder -itemType directory
+New-Item $localuserfolder -itemType directory
+New-Item $domainuserfolder -itemType directory
+
+# Permissions on folders
+$AclLocal = Get-Acl $localuserfolder
+$RightsLocal = [System.Security.AccessControl.FileSystemRights]"FullControl" 
+$LocalPerm = "localftp",$RightsLocal,"ContainerInherit,ObjectInherit”,”None”,”Allow”
+$ArLocal = New-Object  system.security.accesscontrol.filesystemaccessrule $LocalPerm
+$AclLocal.SetAccessRule($ArLocal)
+Set-Acl "$localuserfolder" $AclLocal
+
+$AclDomain = Get-Acl $domainuserfolder
+$RightsDomain = [System.Security.AccessControl.FileSystemRights]"FullControl" 
+$DomainPerm = "domainftp@devopslabs.com",$RightsDomain,"ContainerInherit,ObjectInherit”,”None”,”Allow”
+$ArDomain = New-Object  system.security.accesscontrol.filesystemaccessrule $DomainPerm
+$AclDomain.SetAccessRule($ArDomain)
+Set-Acl "$domainuserfolder" $AclDomain
+
+## IIS commandlets
+Import-Module WebAdministration
+
+##    CREATE FTP SITE AND SET c:\Temp\FTP AS HOME DIRECTORY
+New-WebFtpSite -Name "Default FTP Site" -Port "21" -Force
+cmd /c \Windows\System32\inetsrv\appcmd set SITE "Default FTP Site" "-virtualDirectoryDefaults.physicalPath:$target"
+
+## Set Permissions
+
+     ## Allow SSL connections 
+Set-ItemProperty "IIS:\Sites\Default FTP Site" -Name ftpServer.security.ssl.controlChannelPolicy -Value 0
+Set-ItemProperty "IIS:\Sites\Default FTP Site" -Name ftpServer.security.ssl.dataChannelPolicy -Value 0
+
+     ## Enable Basic Authentication
+Set-ItemProperty "IIS:\Sites\Default FTP Site" -Name ftpServer.security.authentication.basicAuthentication.enabled -Value $true
+
+	## Set User Isolation
+Set-ItemProperty "IIS:\Sites\Default FTP Site" -Name ftpserver.userisolation.mode -Value 3
+
+	## Set Virtual Directories visability
+Set-ItemProperty "IIS:\Sites\Default FTP Site" -Name ftpserver.directoryBrowse.showFlags -Value "DisplayVirtualDirectories"
+
+     ## Give Authorization to All Users and grant "read"/"write" privileges
+Add-WebConfiguration "/system.ftpServer/security/authorization" -value @{accessType="Allow";users="*";permissions=3} -PSPath IIS:\ -location "Default FTP Site"
+
+
+## Map a folder to the FTP site...
+New-Item "IIS:\sites\Default FTP Site\LocalUser" -physicalPath $localfolder -type VirtualDirectory
+New-Item "IIS:\sites\Default FTP Site\devopslabs" -physicalPath $domainfolder -type VirtualDirectory
+New-Item "IIS:\sites\Default FTP Site\LocalUser\localftp" -physicalPath $localuserfolder -type VirtualDirectory
+New-Item "IIS:\sites\Default FTP Site\devopslabs\domainftp" -physicalPath $domainuserfolder -type VirtualDirectory
+
+## Restart IIS
+iisreset

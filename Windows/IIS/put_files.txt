@@ -1,0 +1,17 @@
+ftp
+open ws1
+localftp
+P@ssw0rd
+put C:\Work\hello.html
+binary
+put C:\Windows\system32\calc.exe
+quit
+
+ftp
+open ws1
+domainftp
+P@ssw0rd
+put C:\Work\hello.html
+binary
+put C:\Windows\system32\calc.exe
+quit
