@@ -264,5 +264,15 @@ sudo ssh -L 123:localhost:22 ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws
 
 On local VM: ssh -i "id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -R 22055:localhost:22
 
+7. Install and try "screen" terminal multiplexor ( yum install screen)
+screen -S TOP
+top
+Ctrl+a+d
+screen -ls
+screen -r TOP (single user)
+screen -x TOP (multiple users)
 
+== HOMETASK LESSON 3 ==
+3. How to pass password to sudo
+echo <password> | sudo -S <command>
 
