@@ -195,3 +195,74 @@ ssh root@localhost //test is it possible
 ssh -D 8899 root@localhost //dynamicaly port forward (comes from any port to 8899)
 ssh root@server
 ssh 5555:localhost:8899 root@server //
+
+Check Sylinux on CentOS
+
+User information in /etc/passwd
+/etc/shadow
+/etc/groups
+пароль групи потрібен для того щоб комусь дати, щоб він зміг додати ще людей в групу
+usermod -aG
+id
+
+Permissions on folders
+execute (1) - only enter folder, you can get file in that folder only if you know its name
+read and execute (3) - enter folder and list files
+read write execute (7) - enter folder list files write files, couldn't delete this folder; you can delete this folder only from parent permissions
+
+Permissions on files
+make executable files with execution bit
+if copy executable file from remote system it drop executable on local system
+
+umask -утиліта яка регулює права по дефолту
+для файлу від 666 віднімається якесь значення (666-033=644) побітово!!!!
+для папки від 777 віднімається якесь значення (777-033=744) побітово!!!!
+
+0444
+0 - 3 біти suid sgid sticky
+suid - в момент запуску програми, програма набуває прав власника файла (тільки для executables файлів); passwd - власник root права 755, цій програмі треба записати в shadow. При запуску від звичайного юзера далі passwd виконується з-під root.
+sgid - в момент запуску програми, програма набуває прав власника групи (для папок)
+sticky - ставиться на файли, видалити які може тільки власник. Наприклад каталог tmp
+
+Утиліта ACL при загрузці файлової системи
+
+useradd usermod userdel
+userdel -rf (видаляються і юзер і home і пошта)
+
+su login (login as root)
+sudo command (run command as root)
+visudo - sudo config file
+
+mkdir /tmp/xxx
+cd !$
+result: cd /tmp/xxx
+
+history
+!номер_команди (!35)
+
+в bashrc можна дописати в history час
+
+ctrl+U delete left part of command
+ctrl+K delete right part of comand
+
+hometask:
+створити користувача з папкою і файлами
+різниця між r і rx
+дати sguid 
+написати програму cat /etc/shadow > /tmp/test/1.txt
+1.txt - suid permissions
+test - sguid permissions
+
+
+== HOMETASK LESSON 2 ==
+SSH port forward:
+1. Buld SSH-tunel using Local port forward:  You should create connection from your local system to AWS instance and make socks-proxy on it using  dynamic port forward. (Note, thank you should run ssh twice)
+
+sudo ssh -L 123:localhost:22 ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -i "./.ssh/AWS_key1.pem"
+
+2. Build SSH-tunel using Remote port forward: You should create connection from AWS instance to your local VM which have only outgoing access allowed.
+
+On local VM: ssh -i "id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -R 22055:localhost:22
+
+
+
