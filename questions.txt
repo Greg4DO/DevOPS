@@ -386,3 +386,129 @@ hometask
 скільки файлів з нульовим об'ємом
 скільки проців в системі і скіль в кожного потоків
 змодифікувати файл hosts (дописати), перевірити чи вже існує
+
+
+File Systems/Disks
+
+fdisk -l показує підмонтовані диски в системі
+LVM ріже логічний диск на піддиски для видачі їх віртуальним машинам
+parted - утиліта розбивки дисків якщо диск більше 1 Тб?
+parted -print показує підмонтовані диски в системі
+
+cat /boot/grub/grub.cfg
+/etc/fstab	/etc/mtab - всі змонтовані девайси
+mount -l
+mount -t v_fat /dev/sdf /mnt/usb
+mount -t iso9600 /dev/cd /mnt/cd-rom
+df-h
+cat /proc/cpuinfo інфа про процесор в файловій системі proc
+fsck - утиліта чекання і виправлення диску (не можна запускати на примонтованій файловій системі)
+fsck -n перевіряє але не виправляє
+mkfs - створює файлову систему
+NFS - можна примонтувати файлову систему з мережі
+по ssh також можна примонтувати ФС
+posix
+glusterfs - надбудова над стандартними ext2 ext3 (робить RAID з дисків на різних машинах)
+ext3 відрізняється від ext2 тим що ext3 - журнальована файлова система
+dd - копіювання фізичних дисків
+dd if=/path/to/input of=/path/to/output
+rsync - копіює тільки нові або змінені файли
+диск віртуальної машини можна підмонтувати як readonly
+
+systemd - первинний процес
+ https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/chap-Managing_Services_with_systemd.html
+
+процесу можна подати сигнал
+kill -n де n - сигнал [1-15]
+-9 витирає все з пам'яті
+-15 нормальне завершення (нові підключення заборонені, чекає завершення існуючих підключень)
+
+top
+ps тільки процеси поточного юзера
+ps -aux всі процеси
+ps -aux | grep sshd | grep vagrant | grep -v root | xagrs kill -9
+lsof всі відкриті файли(якщо треба дізнатися який файл відкрив процес)
+послати в бекграунд
+vi tmp.txt &
+повернути з бекграунду (якщо один процес)
+fg
+якщо багато процесів
+jobs повертає список процесів в бекграунді
+
+w - залоговані юзери в системі
+watch 'command' - обновляє результат вказаної команди кожні 2 секунди
+watch 'w'
+
+loop device - Коли треба підмонтувати файл як диск
+
+LVM
+pv - phisical volume (не sda а sda1)
+vg - volume group 
+lv - logical volume (LUN)
+LVM have snapshots
+If phisical disk bad, add new PV, then PV move from bad to new, then remove bad phisical disk.
+
+hdparm -tT /dev/sda1 перевірка швидкості диска
+time <program> скільки часу треба було на запуск проги, скільки вона відпрацьовувала, коли завершилась
+
+hometask:
+1.losetup: dd flash disk to img. losetup img and mount as disk.
+
+
+NETWORK
+
+OSI Model
+1. Phisical (код Морзе)
+2. Data Link (зв'язок по MAC-адресам; роутери)
+3. Network (протоколи IP, ICMP)
+arp - коли девайс питає хто має таку IP, хтось кже я і ця IP відповідаю такому MAC.
+           xxx.xxx.xxx.xxx
+                  |  
+network addresses | host addresses
+4. Transport (TCP,UDP)
+5. Session (встановлення сесії; SSL(перевірка сертифікату),RPC,SQL,NFS,NetBIOS)
+6. Presentation (Syntax layer; SSL (шифрування каналу))
+7. Application(User Applications)
+
+1.
+lshw      |
+lsusb     |
+lspci     | фізичні пристрої системи
+dmidecode |
+iwlist    |
+
+2.
+iwconfig утиліта конфігурування wi-fi карти
+ethtool утиліта міняє параметри мережевої карти
+arp (наприклад для тестування роботи DHCP) дозволяє визначити MAC-адресу машин
+arpping
+
+3.
+ping
+traceroute
+ttl скільки хостів може пройти пакет, перед тим як вмерти
+mtu розмір пакету
+
+4.
+iproute (ifconfig, netstat, ...)
+iproute2 (ip, ss, ts) ip a всі інтерфейси на машині; ip r всі роути на машині
+ip address
+ip route
+netstat є нова ss
+ss -anal
+ss -nlp
+ts обмежує швидкість на інтерфейсі
+
+
+FIREWALL
+Stateless and Statefull firewalls
+iptables statefull firewall
+inbound,outbaont, and forward packets
+
+
+hometask:
+командою ір підняти логічний інтерфейс на фізичному
+man ip
+iptables
+
+
