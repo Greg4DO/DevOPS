@@ -544,8 +544,12 @@ hometask:
 командою ір підняти логічний інтерфейс на фізичному
 man ip
 iptables
-підняти на двух машинах внутрішню мережу. одна роутер з двома інтерфейсами, сконфіжити нат, сконфіжити пакет форвард, сконфіжити фаєрвол, інтерфейс зовнішній - брідж. з другої машини ходити в інтернет через першу.
-
+підняти на двух машинах внутрішню мережу. одна роутер з двома інтерфейсами, сконфіжити SNAT, сконфіжити пакет форвард, сконфіжити фаєрвол, інтерфейс зовнішній - брідж. з другої машини ходити в інтернет через першу.
+eth0 External network eth1 Local network
+sysctl -w net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 
 SCRIPTING
 
@@ -609,7 +613,7 @@ man test
 Як створити 100 папок
 mkdir /tmp/{1..100}
 
-for host in 192.168.1.{1..100} ; do ping $host && $host ; echo -UP || $host ; echo -DOWN
+for host in 192.168.1.{1..100} ; do ping $host && echo $host-UP || echo $host-DOWN
 
 Обрахунок
 echo $((2+5))
