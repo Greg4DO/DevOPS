@@ -504,11 +504,112 @@ FIREWALL
 Stateless and Statefull firewalls
 iptables statefull firewall
 inbound,outbaont, and forward packets
+Ebtables has three tables: filter, nat, broute
+Chains - набір правил в таблицях
+В таблиці filter є 3 стандартних чейна: INPUT, OUTPUT, FORWARD
 
+Дуже спрощено приклад правила:
+iptables -t filter
+
+iptables -A INPUT -p tcp -s 1.2.3.4 -j DROP
+iptables -A INPUT -p tcp -s 1.2.3.0/24 -j ACCEPT
+iptables -A INPUT -p tcp -port 80 -j ACCEPT
+iptables -A INPUT -p tcp -port 22 -j ACCEPT
+iptables -A INPUT -p tcp -j DROP
+
+iptables -S зберігає всі нові правила
+
+Щоб дозволити доступ всередині машини
+iptables -A INPUT -o lo -j ACCEPT
+
+iptables -P Якщо пакет не підпав під жодне правило
+iptables -P INPUT -j DROP
+
+-I (як -A) вставляє правило в перший рядок
+
+iptables -L Подивитись всі правила
+
+В убунті є свій врапер для фаєрвола UFW
+
+ufw status подивитись всі правила
+
+Правила NAT обробляються перед правилами FILTER
+DNAT в таблиці PREROUTING
+SNAT в таблиці POSTROUTING
+MASQUARADE в таблиці POSTROUTING
+
+Щоб дозволити FORWARD пакетів В /etc/sysctl.conf увімкнути net.ipv4.ip_forward=1
 
 hometask:
 командою ір підняти логічний інтерфейс на фізичному
 man ip
 iptables
+підняти на двух машинах внутрішню мережу. одна роутер з двома інтерфейсами, сконфіжити нат, сконфіжити пакет форвард, сконфіжити фаєрвол, інтерфейс зовнішній - брідж. з другої машини ходити в інтернет через першу.
 
 
+SCRIPTING
+
+Перенаправлення і конвеєрезація
+Дискриптори вводу і виводу
+stdin (0) stdout (1) stderr (2)
+
+Як вивести тільки помилки, коли ми шукаємо в рут-директорії:
+find / 1>/dev/null
+
+Помилки в один файл, добре в другий:
+ls -la /var/lib/* 2>/tmp/err 1>/tmp/ok
+
+du 2>/dev/null | sort -nr -kl,8 | head -30
+
+Перенаправити все &>
+duv &>/dev/null
+
+Щоб направити задачу в бекграунд, після команди писати &
+find / 2>/dev/null &
+
+показати останню команду:
+!!
+
+Щоб ловити коди відпрацювання команд
+&&
+Якщо команда виконалась з кодом 0 то вивести ОК
+ping 8.8.8.8 && echo OK
+
+
+Щоб в одній стрічці вказати дві команди ;
+echo A ; echo B
+cp a b ; rm a
+
+Якщо код не 0 ||
+ping 8.8.8.8 && echo OK || echo NO
+
+Підстановка змінної:
+HOST=8.8.8.8 ; ping ${HOST} && echo OK || echo NO
+
+Все що поміститься в () виконається як в окремому шеллі
+echo "$(date -R)" >> /tmp/test.txt ; cat /tmp/test.txt ; ls -la /tmp/te*
+
+Включити відладчик
+set -x
+
+Виключити відладчик
+set +x
+
+echo "$(ls /tmp/$(echo t)*)"
+
+mkdir /tmp/$(date +%Y)
+
+Перевірка чи є директорія
+[ -d /tmp/$(date +%Y) ] && echo Y || mkdir /tmp/$(date +%Y)
+
+man test
+
+Якщо в команді вказати -p помилка не видасться
+
+Як створити 100 папок
+mkdir /tmp/{1..100}
+
+for host in 192.168.1.{1..100} ; do ping $host && $host ; echo -UP || $host ; echo -DOWN
+
+Обрахунок
+echo $((2+5))
