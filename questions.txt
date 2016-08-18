@@ -528,6 +528,7 @@ iptables -P INPUT -j DROP
 -I (як -A) вставляє правило в перший рядок
 
 iptables -L Подивитись всі правила
+iptables -L -n -v Кількість пакетів по правилам
 
 В убунті є свій врапер для фаєрвола UFW
 
@@ -550,6 +551,11 @@ sysctl -w net.ipv4.ip_forward=1
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+
+tcpdump 
+telnet
+nc host port && echo OK
+
 
 SCRIPTING
 
@@ -617,3 +623,80 @@ for host in 192.168.1.{1..100} ; do ping $host && echo $host-UP || echo $host-DO
 
 Обрахунок
 echo $((2+5))
+
+Завжди мувати старі файли перед оновленням!
+Не використовувати cd.. ! Юзати pushd popd.
+Не писати rm -rf $zminna, якщо вона не присвоється повидаляє не те.
+find -typef ! -name *.sh видалити все крім файлів з розширенням sh.
+
+$? exit code останньої команди
+$0 
+$1
+
+read замість sleep
+
+pwd=read -s запитує пароль у користувача
+
+PROGRAMM INSTALLATION
+
+
+.deb	dpkg	apt	Debian
+.rpm	rpm	yum	CentOS
+
+Встановлюється в sys\	bin
+			lib
+			conf
+			scripts/triggers
+В pkg DB записуються dependencies
+
+apt or yum | install | remove | purge(Debian) erase (CentOS)
+
+Щоб зібрати пакет встановити deb tools
+
+Якщо встановлювали плагіни на прогу з сорсів, наступний апдейт накриє плагіни.
+Два вирішення: в конфігах заборонити апдейт проги; зносити прогу і встановлювати її теж з сорсів.
+
+
+CRON
+anacron всі таски які не виконались коли машина була вимкнена, виконаються після старту
+
+inotify Дивиться за змінами в каталогах чи файлах, і робить те що скажеш
+
+
+
+TROUBLESHOOTING
+
+
+set -x
+set +x
+
+Ставити echo в скрипти щоб воно писало як відпрацьовує скрипт в файл
+
+перед запуском деплою:
+uptime
+free -m
+df -h ; df -I
+ps axfu
+iostat навантаження дискової підсистеми
+hdparm
+vmstat
+netstat -a
+ip link
+hdparm
+
+як добавити своп:
+swapfile fs=1M
+mkswap swapfile
+swapon swapfile
+
+strace my_app аналізує що підгрузилось куди полізло
+
+
+home task:
+підняти дві чисті машини CentOS Ubuntu. На амазоні підняти сервіс, доступитись з локальної машини. Написати скрипт, з циклом і аналізом exit коду.
+підмонтувати диск.
+створити демон.
+/etc/system.d/system/create_file
+systemctl status create_file
+screen -L -dm bash -c "node server.js"
+Основні утиліти лінукса busybox
