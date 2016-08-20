@@ -1,0 +1,84 @@
+#!/bin/bash
+iptables -F
+iptables -F -t nat
+iptables -F -t mangle
+iptables -X
+iptables -X -t nat
+iptables -X -t mangle
+
+#Политика по умолчанию - запретить все, что не разрешено
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+#Включаем корректировку MSS (максимальный размер сегмент), чтобы не было фрагментации пакетов. Необходимо из за разных значений MTU
+iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+
+#Пропускать уже инициированные, а также их дочерние пакеты на входящие соединения
+iptables -A INPUT -p all -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#Пропускать новые, инициированные, а также их дочерние на выход
+iptables -A OUTPUT -p all -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+#Пропускать инициированные, а также их дочерние с локалки наружу - пересылка
+iptables -A FORWARD -p all -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+#Разрешаем обращение к lo (127.0.0.1) интерфейсу
+iptables -A INPUT -i lo -p all -j ACCEPT
+iptables -A OUTPUT -o lo -p all -j ACCEPT
+
+#Разрешаем обращение к внутреннему интерфейсу enp0s8  - всем из локальной сети
+iptables -A INPUT -i eno33559296 -j ACCEPT
+iptables -A OUTPUT -o eno33559296 -j ACCEPT
+
+#Разрешаем обращение к mail, ssh, ftp, dns серверам по протоколу TCP из нашей локальной сети
+iptables -A FORWARD -i eno33559296 -s 10.10.1.0/24 -p tcp -m multiport --dports 21,22,25,110,143,443,3306 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+#Разрешаем DNS запросы по протоколу UDP и TCP из нашей локальной сети
+iptables -A FORWARD -i eno33559296 -s 10.10.1.0/24 -p udp -m multiport --dports 53 -j ACCEPT
+iptables -A FORWARD -i eno33559296 -s 10.10.1.0/24 -p tcp -m multiport --dports 53 -j ACCEPT
+
+#Разрешаем пинги с внутреннего интерфейса
+iptables -A INPUT -i eno33559296 -p ICMP -j ACCEPT
+iptables -A OUTPUT -o eno33559296 -p ICMP -j ACCEPT
+
+# SSH
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+
+#FTP
+iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 21 -j ACCEPT
+iptables -I INPUT -p tcp --dport 10090:10100 -j ACCEPT
+
+#SAMBA
+iptables -A INPUT -p udp --dport 137 -j ACCEPT
+iptables -A OUTPUT -p udp --dport 137 -j ACCEPT
+iptables -A INPUT -p udp --dport 138 -j ACCEPT
+iptables -A OUTPUT -p udp --dport 138 -j ACCEPT
+iptables -A INPUT -p tcp --dport 139 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 139 -j ACCEPT
+iptables -A INPUT -p tcp --dport 445 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 445 -j ACCEPT
+
+#MySQL
+iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 3306 -j ACCEPT
+
+#Zabbix-agent
+iptables -A INPUT -p tcp --dport 10050 -j ACCEPT
+iptables -A INPUT -p tcp --dport 10051 -j ACCEPT
+
+#snmp
+iptables -A INPUT -p udp --dport 161 -j ACCEPT
+iptables -A OUTPUT -p udp --dport 161 -j ACCEPT
+iptables -A INPUT -p udp --dport 162 -j ACCEPT
+iptables -A OUTPUT -p udp --dport 162 -j ACCEPT
+
+# Включаем NAT
+iptables -t nat -A POSTROUTING -s 10.10.1.0/255.255.255.0 -j SNAT --to-source 192.168.14.115
+
+# Проброс портов с внешнего IP:3389 на 3389 порт внутренней машины с IP - 10.168.50.50
+iptables -t nat -A PREROUTING -p tcp --dport 3389 -j DNAT --to-destination 10.10.1.50:3389
+iptables -t nat -A POSTROUTING -p tcp -d 10.10.1.50 --dport 3389
+exit 0

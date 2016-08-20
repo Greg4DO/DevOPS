@@ -142,7 +142,7 @@ File System
 /var - variable files
 /usr - user programs
 /home - home dirictories
-/boot - bott loader files
+/boot - boot loader files
 /lib - system libraries
 /opt - otional add-ons
 /mnt- mount directory
@@ -167,7 +167,7 @@ Remote copy (scp, rsync) (scp /tmp/test copy to user@host:/dir)
 Remote execution (ssh user@host "command")
 Port forwarding (local port forward to remote port) (ssh reverse proxy)
 Tunneling пов’язано з PF
-Authorization mechanism (паролями, ключами) public key - замок, secret - ключ, passphrase - шифрування ключа паролем; утиліта ssh-keygen; з secret можна відновити public; (локально треба мати каталог .ssh з правами 500, всередині файл id_rsa з правами 400) ; ssh -vvvv
+Authorization mechanism (паролями, ключами) public key - замок, secret - ключ, passphrase - шифрування ключа паролем; утиліта ssh-keygen; з secret можна відновити public; (локально треба мати каталог /home/user/.ssh з правами 500, всередині файл id_rsa з правами 400) ; ssh -vvvv
 Ready for subsystems  
 config file /etc/ssh/ssh.config
 
@@ -377,7 +377,7 @@ tr -s ' ' видаляє входження більше одного пробіла
 
 sort - сортує файл
 uniq - видає значення скільки було входжень
-cat ufw.log |sed -e 's/SRC=/~/' -e 's/ DST=/~'|cut -d~ -f2 |sort -n|uniq -c| sort -nr -k1,8|head -30
+cat ufw.log | sed -e 's/SRC=/~/' -e 's/ DST=/~'|cut -d~ -f2 |sort -n|uniq -c| sort -nr -k1,8|head -30
 
 hometask
 вивести користувачів які не мають пароля
@@ -547,7 +547,7 @@ man ip
 iptables
 підняти на двух машинах внутрішню мережу. одна роутер з двома інтерфейсами, сконфіжити SNAT, сконфіжити пакет форвард, сконфіжити фаєрвол, інтерфейс зовнішній - брідж. з другої машини ходити в інтернет через першу.
 eth0 External network eth1 Local network
-sysctl -w net.ipv4.ip_forward=1
+sudo sysctl -w net.ipv4.ip_forward=1
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
@@ -700,3 +700,4 @@ home task:
 systemctl status create_file
 screen -L -dm bash -c "node server.js"
 Основні утиліти лінукса busybox
+
