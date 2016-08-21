@@ -693,11 +693,36 @@ strace my_app аналізує що підгрузилось куди полізло
 
 
 home task:
-підняти дві чисті машини CentOS Ubuntu. На амазоні підняти сервіс, доступитись з локальної машини. Написати скрипт, з циклом і аналізом exit коду.
+підняти дві чисті машини CentOS Ubuntu. На амазоні підняти сервіс, доступитись з локальної машини. 
+eth0 External network eth1 Local network
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+
+Написати скрипт, з циклом і аналізом exit коду.
+for host in {100..110} ; do ping -c 1 192.168.0.$host >/dev/null && echo 192.168.0.$host UP || echo 192.168.0.$host DOWN ; done
+
 підмонтувати диск.
+sudo fdisk /dev/sdb
+N (New partition)
+p (primary)
+w (write and quit)
+sudo fdisk -l
+sudo mkfs -t ext4 /dev/sdb1
+ls -la /dev/disk/by-uuid
+sudo vi /etc/fstab
+UUID=e0ade976-ec34-43ba-8c8f-a04492f2d641 /newdisk ext4 defaults 1 2
+sudo mkdir /newdisk
+sudo mount /dev/sdb1 /newdisk
+
 створити демон.
 /etc/system.d/system/create_file
 systemctl status create_file
 screen -L -dm bash -c "node server.js"
+
 Основні утиліти лінукса busybox
+
+
+
 
