@@ -725,4 +725,11 @@ screen -L -dm bash -c "node server.js"
 
 
 
+SSH port forward:
+1. Buld SSH-tunel using Local port forward:  You should create connection from your local system to AWS instance and make socks-proxy on it using  dynamic port forward. (Note, thank you should run ssh twice)
 
+sudo ssh -L 123:localhost:22 ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -i "./.ssh/AWS_key1.pem"
+
+2. Build SSH-tunel using Remote port forward: You should create connection from AWS instance to your local VM which have only outgoing access allowed.
+
+On local VM: ssh -i "id_rsa" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -R 22055:localhost:22

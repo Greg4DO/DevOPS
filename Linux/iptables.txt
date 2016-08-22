@@ -78,6 +78,8 @@ iptables -A OUTPUT -p udp --dport 162 -j ACCEPT
 # Включаем NAT
 iptables -t nat -A POSTROUTING -s 10.10.1.0/255.255.255.0 -j SNAT --to-source 192.168.14.115
 
+
+iptables -t nat -A PREROUTING -p tcp -d 10.0.2.15 --dport 22077 -j DNAT --to-destination 172.17.175.175
 # Проброс портов с внешнего IP:3389 на 3389 порт внутренней машины с IP - 10.168.50.50
 iptables -t nat -A PREROUTING -p tcp --dport 3389 -j DNAT --to-destination 10.10.1.50:3389
 iptables -t nat -A POSTROUTING -p tcp -d 10.10.1.50 --dport 3389

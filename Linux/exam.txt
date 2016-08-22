@@ -1,0 +1,76 @@
+cd Vagrant
+mkdir CentOSExam
+cd CentOSExam
+vagrant init centos/7; vagrant up --provider virtualbox
+
+
+cd ..
+mkdir TrustyExam
+cd TrustyExam
+vagrant init ubuntu/trusty64; vagrant up --provider virtualbox
+
+
+cd ..
+cd CentOSExam
+vagrant ssh
+sudo cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
+sudo vi /etc/sysconfig/network-scripts/ifcfg-eth1
+i
+DEVICE="eth1"
+BOOTPROTO="static"
+ONBOOT="yes"
+TYPE="Ethernet"
+IPADDR="172.17.168.1"
+NETMASK="255.255.240.0"
+esc
+:wq
+ctrl+d
+
+
+cd ..
+cd TrustyExam
+vagrant ssh
+sudo vi /etc/network/interfaces.d/eth0.cfg
+i
+auto eth0
+iface eth0 inet static
+address 172.17.175.175
+netmask 255.255.240.0
+gateway 172.17.168.1
+esc
+:wq
+sudo vi /etc/ssh/sshd_config
+i
+Port 22077
+sudo service ssh restart
+esc
+:wq
+ctrl+d
+
+
+cd ..
+cd CentOSExam
+vagrant ssh
+sudo vi /etc/sysconfig/selinux
+i
+disable
+esc
+:wq
+
+
+
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+
+sudo iptables -t nat -A PREROUTING --dst 10.0.2.15 -p tcp --dport 22077 -j DNAT --to-destination 172.17.175.175:22077
+sudo iptables -t nat -A OUTPUT --dst 10.0.2.15 -p tcp --dport 22077 -j DNAT --to-destination 172.17.175.175:22077
+
+ssh ubuntu@52.36.100.89 -p 22055 -R 22077:10.0.2.15:22077
+
+ssh -i "AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
+ssh vagrant@localhost -p 22077
+
+
