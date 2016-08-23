@@ -37,8 +37,10 @@ iface eth0 inet static
 address 172.17.175.175
 netmask 255.255.240.0
 gateway 172.17.168.1
+dns-nameservers 8.8.8.8
 esc
 :wq
+sudo service networking restart
 sudo vi /etc/ssh/sshd_config
 i
 Port 22077
