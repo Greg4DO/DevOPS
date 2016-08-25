@@ -1,6 +1,5 @@
 #!/bin/bash
-ssh -i "~/.ssh/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
-ssh vagrant@localhost -p 22077
+ssh -tt -i "~/.ssh/AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055 "ssh vagrant@localhost -p 22077 <<EOF >"
 sudo pvcreate /dev/sdb
 sudo vgcreate exam /dev/sdb
 sudo lvcreate -n files --size 1g exam
@@ -23,3 +22,5 @@ sudo ls -la /mnt/semeniuta
 sudo lvremove /dev/exam/files
 sudo vgremove exam
 sudo pvremove /dev/sdb
+EOF
+

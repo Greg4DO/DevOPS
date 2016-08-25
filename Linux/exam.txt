@@ -14,50 +14,39 @@ cd ..
 cd CentOSExam
 vagrant ssh
 sudo cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth1
-sudo vi /etc/sysconfig/network-scripts/ifcfg-eth1
-i
+sudo cat <<EOT > /etc/sysconfig/network-scripts/ifcfg-eth1
 DEVICE="eth1"
 BOOTPROTO="static"
 ONBOOT="yes"
 TYPE="Ethernet"
 IPADDR="172.17.168.1"
 NETMASK="255.255.240.0"
-esc
-:wq
-ctrl+d
-
+EOT
+sudo service networking restart
 
 cd ..
 cd TrustyExam
 vagrant ssh
-sudo vi /etc/network/interfaces.d/eth0.cfg
-i
+sudo cat <<EOT > /etc/network/interfaces.d/eth0.cfg
 auto eth0
 iface eth0 inet static
 address 172.17.175.175
 netmask 255.255.240.0
 gateway 172.17.168.1
 dns-nameservers 8.8.8.8
-esc
-:wq
+EOT
 sudo service networking restart
-sudo vi /etc/ssh/sshd_config
-i
+sudo cat <<EOT > /etc/ssh/sshd_config
 Port 22077
+EOT
 sudo service ssh restart
-esc
-:wq
-ctrl+d
+
 
 
 cd ..
 cd CentOSExam
 vagrant ssh
-sudo vi /etc/sysconfig/selinux
-i
-disable
-esc
-:wq
+sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux && cat /etc/sysconfig/selinux
 
 
 
@@ -72,7 +61,6 @@ sudo iptables -t nat -A OUTPUT --dst 10.0.2.15 -p tcp --dport 22077 -j DNAT --to
 
 ssh ubuntu@52.36.100.89 -p 22055 -R 22077:10.0.2.15:22077
 
-ssh -i "AWS_key1.pem" ubuntu@ec2-52-36-100-89.us-west-2.compute.amazonaws.com -p 22055
-ssh vagrant@localhost -p 22077
+
 
 
