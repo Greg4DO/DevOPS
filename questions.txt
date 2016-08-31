@@ -844,5 +844,30 @@ Home task:
 Inet - nginx (reverse proxy + log + virtual host + certificate) - apache на AWS
 Подивитись як настроїти кешування на nginx
 1. підняти DNS, з зоною .test, forward 8.8.8.8
-2. 2 virtual hosts apache1 apache2
+2. 2 virtual hosts apache1.test apache2.test
+3. Підключити цей DNS собі на ПК
 
+
+AWS
+
+
+Iaas - infrastructure as a service (Virtual Director, EC2)
+PaaS - platform as a service (LAMP, java, docker)
+SaaS - software as a service
+IaaC - infrastructure as a code (DevOPS)
+
+Cloud defenition NIS
+
+Services- Security - IAM
+Create User for CLI, also could create Auth ID and pass for GUI.
+MFA with Google authentificator
+
+how to install aws.cli
+start working with aws cli:aws configure
+
+Home task:
+Install AWS cli
+Install EC2 server through AWS CLI
+
+Install EC2 server through AWS Cloud Formation
+Create Cloud Formation template
