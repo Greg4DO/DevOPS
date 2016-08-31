@@ -852,8 +852,9 @@ AWS
 
 
 Iaas - infrastructure as a service (Virtual Director, EC2)
-PaaS - platform as a service (LAMP, java, docker)
+PaaS - platform as a service (LAMP, java)
 SaaS - software as a service
+CaaS - container as a service
 IaaC - infrastructure as a code (DevOPS)
 
 Cloud defenition NIS
@@ -867,7 +868,45 @@ start working with aws cli:aws configure
 
 Home task:
 Install AWS cli
+
+sudo apt install awscli
+aws configure
+
 Install EC2 server through AWS CLI
+
+
 
 Install EC2 server through AWS Cloud Formation
 Create Cloud Formation template
+
+Design template
+or
+Create stack - Choose a template - Select a sample template - sample templates - solution templates - Services - Amazon EC2
+
+
+CONTAINERS
+
+
+Аплікації, бібліотеки, які можуть стартувати в одному namespace - cgroup.
+Файлова система на основі btrfs (btreefs?)
+
+Контейнер: спільне ядро ОС, в контейнері свої аплікухи, і ліби, контрейнери можуть спілкуватися файлами: data volume ; ця DIR буде на рівні ядра ОС.
+Всі аплікухи в контейнерах повинні працювати на різних портах, оскільки ОС спільна від хоста.
+
+
+docker ps - всі запущені контейнери
+docker run ubuntu
+docker run ubuntu /bin/echo 'Hi from docker'
+docker run -t -i ubuntu /bin/bash
+exit - закриває контейнер
+docker kill container_id
+docker run -d ubuntu /bin/sh -c "while true;echo Hello world;sleep1;done"
+docker logs container_id
+cd /home/greg/sshdocker
+docker build -t eg_sshd .
+docker run -d -P --name test_sshd eg_sshd
+
+
+consul.io/intro
+github: consul/demo/vagrant-claster/Vagrantfile
+
