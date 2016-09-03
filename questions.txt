@@ -874,7 +874,7 @@ aws configure
 
 Install EC2 server through AWS CLI
 
-
+aws ec2 run-instances --image-id ami-8936e0e9 --count 1 --instance-type t2.micro --key-name AWS_key1 --security-groups awscli-sg
 
 Install EC2 server through AWS Cloud Formation
 Create Cloud Formation template
@@ -893,7 +893,6 @@ CONTAINERS
 Контейнер: спільне ядро ОС, в контейнері свої аплікухи, і ліби, контрейнери можуть спілкуватися файлами: data volume ; ця DIR буде на рівні ядра ОС.
 Всі аплікухи в контейнерах повинні працювати на різних портах, оскільки ОС спільна від хоста.
 
-
 docker ps - всі запущені контейнери
 docker run ubuntu
 docker run ubuntu /bin/echo 'Hi from docker'
@@ -906,7 +905,50 @@ cd /home/greg/sshdocker
 docker build -t eg_sshd .
 docker run -d -P --name test_sshd eg_sshd
 
-
 consul.io/intro
-github: consul/demo/vagrant-claster/Vagrantfile
+github: consul/demo/vagrant-cluster/Vagrantfile
+
+HomeTask:
+WordPress on Docker
+k2QtA-BQMi%n7UueWd
+
+
+GIT
+
+
+Repository (Project)
+	src
+	conf
+	test
+Всі зміни що вносяться в проект - commit
+Після нього проект набуває певних якостей
+Кожен commit знає хто він, хто був до нього, хто стоїть після нього.
+Head - останній commit
+Branch - своя гілка проекту
+master - основна гілка проекту
+Merge - об'єднання бренча і хеда
+Checkout - встати на будь-який комміт і якщо захочемо комітити, треба створити свій бренч.
+Reset - Видалення комміту
+Revert - commit0 - commit+ - commit- - commit0
+Rebase - схоже на merge, але переносить всі комміти хронологічно, з іншої гілки, в нашу гілку, не втрачаючи історії своїх комітів.
+Charepick
+Origin - центральний репозиторій
+З центральним репозиторієм є такі операції:
+pull - тягнемо центр репозиторій собі
+push - кладем свій head на центральний репозиторій
+pull request - коли просиш Delivery Manager'а перевірити і запушити твій код
+
+gitready.com
+ndpsoftware.com/git-cheatsheet.html
+wei-wang.com/ExplainGitWithD3
+
+git clone
+git status
+git branch -a показує всі бренчі
+
+
+
+
+
+
 
