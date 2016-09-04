@@ -946,9 +946,26 @@ git clone
 git status
 git branch -a показує всі бренчі
 
+Home task:
 
 
-
+cd Git/
+mkdir sko-lv
+cd sko-lv/
+git init
+git remote add origin https://github.com/sko-lv/test.git
+git pull origin master
+git branch my_branch
+git branch
+git checkout my_branch
+git branch
+*some changes*
+git status
+git commit -m "Text"    #or git commit -a
+git status
+git log
+git push -u origin my_branch
+git request-pull c2d81305 origin my_branch -p
 
 
 
