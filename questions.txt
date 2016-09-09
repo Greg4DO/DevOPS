@@ -1,10 +1,5 @@
 wi-fi: KmdsdTgfv
-vm on 2012r2
 
-AWS
-1.EC2
-User name	Administrator
-Password	e.7fKrXbMx	Kg7cYQx35X	&jW;JS552y
 
 
 1. updates 1 в три дня в 15-00. ставить но не перегружать. ставить c mydomain.com
@@ -119,7 +114,7 @@ HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\
 
 
 
-DevOps 
+DevOps
 Developer - Build - Test - Deploy - Client
 Build - Test - Deploy -> DevOps
 Operations - internal (кухня)
@@ -156,7 +151,7 @@ inodes - вся інформація про файли, ім’я знаходиться в каталозі.
 soft link - може посилатись на зовнішню файлову систему, можна посилатись на каталог, нічого не говорить про атрибути оригінального файлу і його права.
 hard link - друге ім’я файлу, не мапиться на каталог чи на зовнішній девайс
 block device - disks, network (напряму звертатись не можем)
-charachter device - dev/tti, dev/con, dev/zero, dev/urandom, 
+charachter device - dev/tti, dev/con, dev/zero, dev/urandom,
 Перехід між блочним пристроєм і файлом - команда dd
 pipeline - канали вводу/виводу даних (stdout/stdin)
 socket - програмний канал, в основному використовується для мереж //xinetd (запуск програми по зверненню до порта)
@@ -168,7 +163,7 @@ Remote execution (ssh user@host "command")
 Port forwarding (local port forward to remote port) (ssh reverse proxy)
 Tunneling пов’язано з PF
 Authorization mechanism (паролями, ключами) public key - замок, secret - ключ, passphrase - шифрування ключа паролем; утиліта ssh-keygen; з secret можна відновити public; (локально треба мати каталог /home/user/.ssh з правами 500, всередині файл id_rsa з правами 400) ; ssh -vvvv
-Ready for subsystems  
+Ready for subsystems
 config file /etc/ssh/ssh.config
 
 
@@ -248,7 +243,7 @@ ctrl+K delete right part of comand
 hometask:
 створити користувача з папкою і файлами
 різниця між r і rx
-дати sguid 
+дати sguid
 написати програму cat /etc/shadow > /tmp/test/1.txt
 1.txt - suid permissions
 test - sguid permissions
@@ -443,7 +438,7 @@ loop device - Коли треба підмонтувати файл як диск
 
 LVM
 pv - phisical volume (не sda а sda1)
-vg - volume group 
+vg - volume group
 lv - logical volume (LUN)
 LVM have snapshots
 If phisical disk bad, add new PV, then PV move from bad to new, then remove bad phisical disk.
@@ -463,7 +458,7 @@ OSI Model
 3. Network (протоколи IP, ICMP)
 arp - коли девайс питає хто має таку IP, хтось кже я і ця IP відповідаю такому MAC.
            xxx.xxx.xxx.xxx
-                  |  
+                  |
 network addresses | host addresses
 4. Transport (TCP,UDP)
 5. Session (встановлення сесії; SSL(перевірка сертифікату),RPC,SQL,NFS,NetBIOS)
@@ -503,8 +498,8 @@ ts обмежує швидкість на інтерфейсі
 FIREWALL
 Stateless and Statefull firewalls
 iptables statefull firewall
-inbound,outbaont, and forward packets
-Ebtables has three tables: filter, nat, broute
+inbound,outbound, and forward packets
+iptables has three tables: filter, nat, broute
 Chains - набір правил в таблицях
 В таблиці filter є 3 стандартних чейна: INPUT, OUTPUT, FORWARD
 
@@ -552,7 +547,7 @@ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 
-tcpdump 
+tcpdump
 telnet
 nc host port && echo OK
 
@@ -630,7 +625,7 @@ echo $((2+5))
 find -typef ! -name *.sh видалити все крім файлів з розширенням sh.
 
 $? exit code останньої команди
-$0 
+$0
 $1
 
 read замість sleep
@@ -693,7 +688,7 @@ strace my_app аналізує що підгрузилось куди полізло
 
 
 home task:
-підняти дві чисті машини CentOS Ubuntu. На амазоні підняти сервіс, доступитись з локальної машини. 
+підняти дві чисті машини CentOS Ubuntu. На амазоні підняти сервіс, доступитись з локальної машини.
 eth0 External network eth1 Local network
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -814,7 +809,7 @@ nodejs
 npm - node packet manager
 nvm - node version manager
 
-Least loaded (Load balancing з перевіркою хто менш нагружений (менше конектів передано); але сесія може рватись) 
+Least loaded (Load balancing з перевіркою хто менш нагружений (менше конектів передано); але сесія може рватись)
 ip
 Sticky session ()
 
@@ -950,22 +945,65 @@ Home task:
 
 
 cd Git/
-mkdir sko-lv
-cd sko-lv/
+mkdir test
+cd test/
 git init
-git remote add origin https://github.com/sko-lv/test.git
+git remote add origin https://github.com/Greg4DO/test.git
 git pull origin master
-git branch my_branch
+git branch semeniuta
 git branch
-git checkout my_branch
+git checkout semeniuta
 git branch
 *some changes*
 git status
-git commit -m "Text"    #or git commit -a
+git commit -a -m "Text"
 git status
 git log
-git push -u origin my_branch
-git request-pull c2d81305 origin my_branch -p
+git push -u origin semeniuta
+
+*Some tests*
+ssh-agent bash -c 'ssh-add /home/greg/.ssh/sko_lv; git push -u ssh://sko-lv@github.com/test.git my_branch'
+ssh-agent bash -c 'ssh-add /home/greg/.ssh/sko_lv; git request-pull c2d81305 origin my_branch -p'
 
 
 
+ANSIBLE
+
+
+doc.ansible.com
+ansible galaxy
+
+Два режима Ad-Hoc (дуже швидкі команди) і PlayBooks
+Для спрощення плейбуки є з ролями
+
+apache install
+set apache to start with system
+hendler to restart apache
+
+Hometask
+Wordpress with Ansible
+YpXvfJI4H(#r32G7s^
+
+
+
+ZABBIX
+
+
+Основна задача: Запобігати проблемам.
+active & passive checks
+
+
+ELK - Elastic Search Logstash Kibana
+
+Logstash - log collector
+Elasticsearch - search engine
+Kibana - web interface
+
+
+
+
+Exam
+Vagrantfile: Deploy VM with Docker-host
+	Container for zabbix
+		Agent zabbix on local PC
+Ansible + Container -> Git
