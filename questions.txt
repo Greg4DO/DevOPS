@@ -1008,3 +1008,99 @@ Vagrantfile: Deploy VM with Docker-host
 		Agent zabbix on local PC
 Ansible + Container -> Git
 111
+
+
+
+BIGDATA
+
+
+Hadoop
+
+
+More then 100 Tb
+HDFS - Hadoop distrebuted file system
+Yarn/Spark - resource manager
+Hive - relational DB analog
+Hue - GUI
+Monitoring and administrating tools
+
+Block size 128 Mb
+
+Cloudera
+HortonWorks
+EEMAR (AWS) - ˜˜˜˜˜˜ ˜˜˜˜˜˜˜˜˜˜ ˜ ˜˜˜˜˜˜˜ ˜˜˜˜
+Namenode - manager (metadata)
+Datanode - slave
+
+Write
+Client wants to write, Namenode says in which Datanode to write, then replication between Datanodes.
+
+Read
+Client wants to read, Namenode says in which (all) Datanodes can read.
+
+Namenode working in 2 modes
+HA mode
+Primary and secondary Namenodes
+
+INSTALL CLOUDERA
+http://69.42.49.98:7180
+
+
+Hometask
+Install Cloudera client
+Download Client Configuration
+Upload file to Server
+//http://69.42.49.98:7180/cmf/hardware/hosts (Hosts all hosts)
+
+export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export PATH=$HADOOP_HOME/bin:$PATH
+hadoop fs -ls /tmp
+hadoop fs -copyFromLocal examples/graphs/sample.adj /tmp
+
+Yarn
+
+Resource manager ˜˜˜˜˜ ˜˜˜˜˜˜˜˜˜˜ ˜˜˜˜˜˜˜˜˜˜˜ ˜˜ ˜˜˜˜˜˜˜˜˜˜ ˜˜˜˜˜˜, ˜˜˜˜˜˜˜˜˜˜ ˜˜˜˜˜˜˜˜˜˜˜ ˜˜ ˜˜˜˜˜.
+˜˜˜˜ ˜˜˜˜˜˜˜˜˜ ˜ ˜˜˜˜˜˜ HA.
+˜?˜˜ ˜˜˜˜˜˜˜˜˜˜˜ ˜˜ RM - ˜˜˜˜˜˜˜˜˜˜˜˜ App Master - ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜ ˜˜ ˜˜˜˜˜˜ ˜˜˜˜˜.
+Node Manager ˜˜˜˜˜˜˜ Resource manager'˜ ˜˜˜˜˜˜˜ ˜ ˜˜˜˜˜ ˜˜˜˜˜˜˜˜.
+
+Scheduler
+FIFO Scheduler
+Capacity Scheduler
+Fair Scheduler
+
+Hometask
+˜˜˜˜˜˜˜˜˜ ˜˜˜˜˜ ˜˜ ˜ 16 ˜˜˜˜˜˜ ˜˜˜˜˜ ˜˜˜˜˜˜˜
+˜˜˜˜˜˜˜˜˜ ˜˜˜˜˜˜ ˜˜˜˜˜, ˜˜˜˜˜˜˜˜ ˜˜˜˜
+
+export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export PATH=$HADOOP_HOME/bin:$PATH
+su - hdfs
+yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+yarn application -kill application_1473862952233_0010
+yarn logs -applicationId application_1473862952233_0010
+
+
+HIVE
+
+Metastore - ˜˜˜˜˜˜˜˜˜ ˜˜
+
+
+Hometask:
+Create table with 50 Mb of data in Hive with Hue
+
+export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export PATH=$HADOOP_HOME/bin:$PATH
+hadoop fs -mkdir -p /user/hive/warehouse/semeniuta
+hadoop fs -copyFromLocal /home/greg/Cloudera/airports.csv /user/hive/warehouse/semeniuta
+In HUE Metastore manager -> Databases -> default -> Create table from file
+
+
+hadoop fs -cp /user/hadoop/A/file1 /user/hadoop/B/file2 /user/hadoop/C/
+
+count
+copy file to hdfs
+ping google
