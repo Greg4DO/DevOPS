@@ -1146,3 +1146,10 @@ mvn clean
 		compile dependency:analyze
 
 Repositories defined in POM
+
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+hometask
+maven build jar
+ant script to compile and create jar
