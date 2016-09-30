@@ -1153,3 +1153,19 @@ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -Darchety
 hometask
 maven build jar
 ant script to compile and create jar
+
+
+SDLC (Systems Development Life Cycle)
+
+
+Describes a process for planning, creating, testing, deploying, maintenance and support of application.
+Common Life Cycle Models:
+Waterfall
+Agile
+Scrum
+Srum roles:
+	Product Owner
+	Scrum Team
+	Scrum Master
+	Stakeholders (customers, vendors)
+	Managers
