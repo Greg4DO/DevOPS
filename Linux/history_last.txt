@@ -1,0 +1,1000 @@
+  994  ll
+  995  cd App/
+  996  ll
+  997  vagrant up
+  998  sudo vagrant up
+  999  df -h
+ 1000  sudo vagrant up
+ 1001  vagrant up
+ 1002  vagrant up Vagrantfile
+ 1003  vagrant up
+ 1004  sudo vagrant up
+ 1005  cd ..
+ 1006  cd ansible/
+ 1007  ll
+ 1008  cd ..
+ 1009  cd exam/
+ 1010  ll
+ 1011  cd App/
+ 1012  ll
+ 1013  vagrant up
+ 1014  cd ..
+ 1015  ll
+ 1016  touch playbook.yml
+ 1017  touch hosts
+ 1018  mkdir roles && cd roles
+ 1019  cd ..
+ 1020  ll
+ 1021  vagrant up
+ 1022  cd App
+ 1023  vagrant up
+ 1024  cd ..
+ 1025  cd Git
+ 1026  cd GIT/
+ 1027  ll
+ 1028  git pull origin master
+ 1029  cd ..
+ 1030  ll
+ 1031  cd DB
+ 1032  ll
+ 1033  vagrant up
+ 1034  docker --version
+ 1035  vagrant up
+ 1036  cd ..
+ 1037  cd App/
+ 1038  vagrant up
+ 1039  telnet 69.42.49.98 7180
+ 1040  df -h
+ 1041  telnet 69.42.49.98 7180
+ 1042  apt-cache policy skype
+ 1043  sudo apt update
+ 1044  sudo apt install skype
+ 1045  sudo apt upgrade
+ 1046  cd Downloads/hadoop-conf/
+ 1047  ll
+ 1048  chmod 764 hadoop-env.sh 
+ 1049  ll
+ 1050  ./hadoop-env.sh 
+ 1051  ll
+ 1052  cd /bin
+ 1053  ll
+ 1054  sudo -i
+ 1055  echo $JAVA_HOME
+ 1056  cd /usr/local/
+ 1057  ll
+ 1058  cd export PATH=$HADOOP_HOME/bin:$PATH
+ 1059  cd /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java/bin/java
+ 1060  cd /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java/bin/
+ 1061  cd /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/
+ 1062  ll
+ 1063  sudo cd jav
+ 1064  sudo cd java
+ 1065  sudo cd java/
+ 1066  vi java 
+ 1067  sudo nano /etc/environment
+ 1068  source /etc/environment 
+ 1069  sudo nano /etc/environment
+ 1070  source /etc/environment 
+ 1071  echo $JAVA_HOME
+ 1072  sudo nano /etc/environment
+ 1073  sudo nano /etc/hosts
+ 1074  cd Cloudera/
+ 1075  tar xvf hadoop-2.5.0-cdh5.2.1.tar.gz -C /opt
+ 1076  sudo tar xvf hadoop-2.5.0-cdh5.2.1.tar.gz -C /opt
+ 1077  cd hadoop-conf/
+ 1078  ll
+ 1079  cd ..
+ 1080  ll
+ 1081  cd hadoop-conf/
+ 1082  ll
+ 1083  sudo apt-get update
+ 1084  sudo apt-get install default-jre
+ 1085  echo $JAVA_HOME
+ 1086  sudo update-alternatives --config java
+ 1087  sudo nano /etc/environment
+ 1088  echo $JAVA_HOME
+ 1089  source /etc/environment
+ 1090  echo $JAVA_HOME
+ 1091  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1092  vi hadoop-env.sh
+ 1093  sudo vi hadoop-env.sh
+ 1094  sudo nano hadoop-env.sh
+ 1095  fg
+ 1096  echo $JAVA_HOME
+ 1097  sudo nano hadoop-env.sh
+ 1098  hadoop fs -ls /tmp
+ 1099  cd $PGX_HOME
+ 1100  echo $PGX_HOME
+ 1101  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1102  source /etc/environment
+ 1103  echo $PGX_HOME
+ 1104  echo $HADOOP_HOME
+ 1105  echo $HADOOP_CONF_DIR
+ 1106  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1107  source /etc/environment
+ 1108  echo $HADOOP_CONF_DIR
+ 1109  export PATH=$HADOOP_HOME/bin:$PATH
+ 1110  source /etc/environment
+ 1111  cd export PATH=$HADOOP_HOME/bin:$PATH
+ 1112  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1113  hadoop fs -ls /tmp
+ 1114  ll
+ 1115  chmod 764 hadoop-env.sh
+ 1116  sudo chmod 764 hadoop-env.sh
+ 1117  ll
+ 1118  ./hadoop-env.sh
+ 1119  sudo ./hadoop-env.sh
+ 1120  hadoop fs -ls /tmp
+ 1121  id 1106
+ 1122  cd ..
+ 1123  chown -R root:root hadoop
+ 1124  sudo chown -R root:root hadoop
+ 1125  cd hadoop
+ 1126  ll
+ 1127  hadoop fs -ls /tmp
+ 1128  sudo ./hadoop-env.sh
+ 1129  hadoop fs -ls /tmp
+ 1130  cd ..
+ 1131  ll
+ 1132  cd etc/hadoop
+ 1133  ll
+ 1134  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1135  echo $HADOOP_HOME
+ 1136  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1137  echo $HADOOP_CONF_DIR
+ 1138  export PATH=$HADOOP_HOME/bin:$PATH
+ 1139  echo $PATH
+ 1140  hadoop fs -ls /tmp
+ 1141  echo $JAVA_HOME
+ 1142  hadoop fs -ls /tmp
+ 1143  echo $JAVA_HOME
+ 1144  source /etc/environment 
+ 1145  echo $JAVA_HOME
+ 1146  source /etc/environment 
+ 1147  export PATH=$HADOOP_HOME/bin:$PATH
+ 1148  echo $PATH
+ 1149  source /etc/environment 
+ 1150  hadoop fs -ls /tmp
+ 1151  ll
+ 1152  nano hadoop-env.sh
+ 1153  sudo nano hadoop-env.sh
+ 1154  hadoop fs -ls /tmp
+ 1155  hadoop fs -copyFromLocal /home/greg/Cloudera/Grygorii_Semeniuta /tmp
+ 1156  java --version
+ 1157  sudo java -v
+ 1158  sudo java -version
+ 1159  cd Cloudera/
+ 1160  ll
+ 1161  cd hadoop-conf/
+ 1162  ll
+ 1163  vi hadoop-env.sh 
+ 1164  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1165  ll
+ 1166  vi hadoop-env.sh
+ 1167  cd /opt/
+ 1168  ll
+ 1169  cd hadoop-2.5.0-cdh5.2.1/
+ 1170  ll
+ 1171  cd etc/
+ 1172  ll
+ 1173  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1174  ll
+ 1175  cd ..
+ 1176  ll
+ 1177  cd ..
+ 1178  ll
+ 1179  cd examples
+ 1180  ll
+ 1181  cd include/
+ 1182  ll
+ 1183  cd ..
+ 1184  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1185  ll
+ 1186  su - hdfs
+ 1187  su - admin
+ 1188  su -u hdfs
+ 1189  sudo -u hdfs
+ 1190  sudo su - hdfs
+ 1191  sudo -u hdfs cd /opt/yarn
+ 1192  hadoop fs -ls
+ 1193  hadoop fs -ls /tmp
+ 1194  ll
+ 1195  sudo hadoop fs -ls /tmp
+ 1196  sudo -i
+ 1197  sudo hadoop fs -ls /tmp
+ 1198  hadoop fs -ls /tmp
+ 1199  ll
+ 1200  nano core-site.xml
+ 1201  nano core-site.xml.default 
+ 1202  hadoop fs -ls /tmp
+ 1203  mc
+ 1204  hadoop fs -ls /tmp
+ 1205  mc
+ 1206  hadoop fs -ls /tmp
+ 1207  mc
+ 1208  hadoop fs -ls /tmp
+ 1209  su - hdfs
+ 1210  hadoop fs -ls
+ 1211  hadoop fs -ls /
+ 1212  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1213  hadoop fs -ls /tmp
+ 1214  ./yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1215  yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1216  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1217  export HADOOP_HOME_DIR=/opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1218  yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1219  echo $HADOOP_CONF_DIR
+ 1220  echo $HADOOP_HOME
+ 1221  vi yarn-env.sh 
+ 1222  yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1223  vi yarn-env.sh 
+ 1224  yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1225  ./yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1226  yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1227  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1228  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1229  export PATH=$HADOOP_HOME/bin:$PATH
+ 1230  hadoop fs -ls /tmp
+ 1231  yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1232  su -hdfs
+ 1233  su - hdfs
+ 1234  useradd hdfs
+ 1235  sudo useradd hdfs
+ 1236  id greg
+ 1237  id hdfs
+ 1238  su -hdfs
+ 1239  su - hdfs
+ 1240  passwd hdfs
+ 1241  sudo passwd hdfs
+ 1242  su - hdfs
+ 1243  hadoop fs -ls /tmp
+ 1244  sudo yarn jar /opt/hadoop-2.5.0-cdh5.2.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0-cdh5.2.1.jar pi 16 1000
+ 1245  su -hdfs
+ 1246  su - hdfs
+ 1247  mc
+ 1248  yarn application -kill application_1473862952233_0010
+ 1249  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1250  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1251  export PATH=$HADOOP_HOME/bin:$PATH
+ 1252  yarn application -kill application_1473862952233_0010
+ 1253  yarn logs -nodeAddress deema-test1.localdomain:8088
+ 1254  yarn logs -applicationId application_1473862952233_0010
+ 1255  yarn logs -applicationId application_1473862952233_0018
+ 1256  nano /etc/environment 
+ 1257  mc
+ 1258  cd..
+ 1259  cd ..
+ 1260  cd share/
+ 1261  cd hadoop/mapreduce
+ 1262  ll
+ 1263  cat syslog >> /home/greg/Cloudera/syslog 
+ 1264  truncate --size=50M b.log 
+ 1265  cp vbox-install.log >> /home/greg/Cloudera/
+ 1266  cp vbox-install.log >> /home/greg/Cloudera
+ 1267  cp vbox-install.log /home/greg/Cloudera
+ 1268  cat vbox-install.log >> /home/greg/Cloudera/vbox-install.log 
+ 1269  truncate --size=50M vbox-install.log 
+ 1270  cat banklist.csv >> /home/greg/Cloudera/banklist.csv 
+ 1271  cat banklists.csv >> /home/greg/Cloudera/banklist.csv 
+ 1272  cat banklist.csv >> /home/greg/Cloudera/banklists.csv 
+ 1273  cat banklists.csv >> /home/greg/Cloudera/banklist.csv 
+ 1274  cat banklist.csv >> /home/greg/Cloudera/banklists.csv 
+ 1275  cat banklists.csv >> /home/greg/Cloudera/banklist.csv 
+ 1276  cat banklist.csv >> /home/greg/Cloudera/banklists.csv 
+ 1277  cat banklists.csv >> /home/greg/Cloudera/banklist.csv 
+ 1278  truncate --size=50 banklist.csv 
+ 1279  rm banklists.csv 
+ 1280  cat banklist.csv >> /home/greg/Cloudera/bl.csv 
+ 1281  cat bl.csv >> /home/greg/Cloudera/banklist.csv 
+ 1282  cat banklist.csv >> /home/greg/Cloudera/bl.csv 
+ 1283  cat bl.csv >> /home/greg/Cloudera/banklist.csv 
+ 1284  cat banklist.csv >> /home/greg/Cloudera/bl.csv 
+ 1285  cat bl.csv >> /home/greg/Cloudera/banklist.csv 
+ 1286  cat banklist.csv >> /home/greg/Cloudera/bl.csv 
+ 1287  truncate --size=50M bl.csv 
+ 1288  rm banklist.csv 
+ 1289  vi bl.csv 
+ 1290  vi airports.csv 
+ 1291  cat airports.csv > /home/greg/Cloudera/air.csv
+ 1292  cat airports.csv >> /home/greg/Cloudera/air.csv
+ 1293  vi airports.csv 
+ 1294  vi air.csv 
+ 1295  nano air.csv 
+ 1296  mc
+ 1297  mc
+ 1298  dd if=/dev/urandom of=a.log bs=50M count=1
+ 1299  ll
+ 1300  dd if=/dev/urandom >> a.log bs=18M count=1
+ 1301  ll
+ 1302  mv a.log CLoudera/
+ 1303  mv a.log Cloudera/
+ 1304  cat a.log
+ 1305  cd Cloudera/
+ 1306  cat a.log 
+ 1307  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1308  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1309  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1310  export PATH=$HADOOP_HOME/bin:$PATH
+ 1311  hadoop fs -ls /tmp
+ 1312  su hdfs
+ 1313  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1314  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1315  export PATH=$HADOOP_HOME/bin:$PATH
+ 1316  hadoop fs -mkdir -p /user/semeniuta
+ 1317  java --version
+ 1318  java -version
+ 1319  echo $JAVA_HOME
+ 1320  mc
+ 1321  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1322  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1323  export PATH=$HADOOP_HOME/bin:$PATH
+ 1324  hadoop fs -ls /tmp
+ 1325  hadoop fs -mkdir -p /user/semeniuta
+ 1326  su hdfs
+ 1327  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1328  export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+ 1329  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+ 1330  export PATH=$HADOOP_HOME/bin:$PATH
+ 1331  hadoop fs -mkdir -p /user/hive/warehouse/artemyshyn
+ 1332  hadoop fs -ls /user/hive/warehouse/artemyshyn
+ 1333  hadoop fs -chmod -R 777 /user/hive/warehouse/semeniuta
+ 1334  hadoop fs -rm -p /user/greg
+ 1335  hadoop fs -rm /user/greg
+ 1336  hadoop fs -rmdir /user/greg
+ 1337  su hdfs
+ 1338  hadoop fs -mkdir -p /user/greg
+ 1339  su hdfs
+ 1340  cd /opt/hadoop-2.5.0-cdh5.2.1/etc/hadoop
+ 1341  su hdfs
+ 1342  cd Vagrant/
+ 1343  ll
+ 1344  rm -rf Centos1/
+ 1345  rm -rf CentOSExam/
+ 1346  rm -rf Trusty1
+ 1347  rm -rf Trusty2/
+ 1348  rm -rf Trusty_Apache/
+ 1349  rm -rf TrustyExam/
+ 1350  ll
+ 1351  mkdir CentOS1
+ 1352  mkdir CentOS2
+ 1353  cd CentOS1
+ 1354  vagrant init centos-7; vagrant up --provider virtualbox
+ 1355  vagrant init centos/7; vagrant up --provider virtualbox
+ 1356  ll
+ 1357  rm -rf .vagrant/
+ 1358  rm -rf Vagrantfile 
+ 1359  vagrant init centos/7; vagrant up --provider virtualbox
+ 1360  cd ..
+ 1361  cd CentOS2
+ 1362  vagrant init centos/7; vagrant up --provider virtualbox
+ 1363  cd ..
+ 1364  ll
+ 1365  mkdir Trusty
+ 1366  cd Trusty/
+ 1367  vagrant init ubuntu/trusty64; vagrant up --provider virtualbox
+ 1368  cd ..
+ 1369  mkdir Xenial
+ 1370  cd Xenial/
+ 1371  vagrant init ubuntu/xenial64; vagrant up --provider virtualbox
+ 1372  netstat -an | grep 80
+ 1373  vagrant ssh
+ 1374  cd ..
+ 1375  cd CentOS1
+ 1376  vagrant ssh
+ 1377  cd ..
+ 1378  cd CentOS2
+ 1379  vagrant ssh
+ 1380  cd Vagrant/Xenial/
+ 1381  vagrant up
+ 1382  vagrant ssh
+ 1383  cd ..
+ 1384  cd CentOS1/
+ 1385  vagrant up
+ 1386  cd ..
+ 1387  cd CentOS2
+ 1388  sudo -i
+ 1389  vagrant up
+ 1390  vagrant ssh
+ 1391  ip a
+ 1392  ping 8.8.8.8
+ 1393  ping google.com
+ 1394  vagrant ssh
+ 1395  cd ..
+ 1396  cd CentOS1
+ 1397  vagrant up
+ 1398  vagrant down
+ 1399  vagrant halt
+ 1400  vagrant up
+ 1401  vagrant ssh
+ 1402  vagrant up
+ 1403  cd Vagrant/CentOS2/
+ 1404  vagrant up
+ 1405  vagrant ssh
+ 1406  cd..
+ 1407  cd ..
+ 1408  cd CentOS1
+ 1409  vagrant ssh
+ 1410  pwd
+ 1411  cd ..
+ 1412  ll
+ 1413  cd CentOS1
+ 1414  vagrant ssh
+ 1415  ll
+ 1416  nano Vagrantfile 
+ 1417  cd ..
+ 1418  cd CentOS2
+ 1419  nano Vagrantfile 
+ 1420  cd ..
+ 1421  cd CentOS1
+ 1422  nano Vagrantfile 
+ 1423  vagrant ssh
+ 1424  ll
+ 1425  cd .vagrant/
+ 1426  ll
+ 1427  cd machines/
+ 1428  ll
+ 1429  cd default/
+ 1430  ll
+ 1431  cd virtualbox/
+ 1432  ll
+ 1433  cat action_set_name 
+ 1434  cat creator_uid 
+ 1435  cat id 
+ 1436  cat index_uuid 
+ 1437  cat pr
+ 1438  cat private_key 
+ 1439  cd Vagrant/CentOS2
+ 1440  vagrant ssh
+ 1441  cd .vagrant/
+ 1442  ll
+ 1443  cd machines/
+ 1444  ll
+ 1445  cd default/
+ 1446  ll
+ 1447  cd virtualbox/
+ 1448  ll
+ 1449  cat action_set_name 
+ 1450  cat creator_uid 
+ 1451  cat id
+ 1452  cat index_uuid 
+ 1453  cat private_key 
+ 1454  vagrant ssh
+ 1455  vagrant ssh -p 2201
+ 1456  vagrant ssh Centos1
+ 1457  vagrant ssh CentOS1
+ 1458  ssh -p 2200
+ 1459  vagrant ssh --guest 2201
+ 1460  vagrant ssh --p 2201
+ 1461  vagrant ssh CentOS1_default_1474458251774_73960
+ 1462  vagrant ssh CentOS1
+ 1463  cd Vagrant/CentOS1
+ 1464  vagrant up
+ 1465  VBoxManage --version
+ 1466  nano Vagrantfile 
+ 1467  cd ..
+ 1468  cd Xenial/
+ 1469  nano Vagrantfile 
+ 1470  cd ..
+ 1471  cd CentOS1
+ 1472  vagrant up
+ 1473  cd ..
+ 1474  cd CentOS2
+ 1475  vagrant up
+ 1476  cd ..
+ 1477  cd CentOS1
+ 1478  vagrant up
+ 1479  vi Vagrantfile 
+ 1480  vagrant up
+ 1481  vi Vagrantfile 
+ 1482  vagrant ssh
+ 1483  cd Vagrant/CentOS1
+ 1484  vagrant up
+ 1485  vagrant ssh
+ 1486  nano Vagrantfile 
+ 1487  vi Vagrantfile 
+ 1488  vagrant up
+ 1489  vagrant ssh
+ 1490  vi Vagrantfile 
+ 1491  vagrant up
+ 1492  vagrant ssh
+ 1493  ip a
+ 1494  cd ..
+ 1495  cd CentOS2
+ 1496  vi Vagrantfile 
+ 1497  vagrant up
+ 1498  vi Vagrantfile 
+ 1499  vagrant up
+ 1500  vagrant ssh
+ 1501  nano /etc/resolv.conf 
+ 1502  ping google.com
+ 1503  nano /etc/resolv.conf 
+ 1504  sudo nano /etc/resolv.conf 
+ 1505  ping google.com
+ 1506  vagrant ssh
+ 1507  cd Vagrant/CentOS1
+ 1508  vagrant up
+ 1509  vagrant ssh
+ 1510  cd ..
+ 1511  cd CentOS2
+ 1512  vagrant up
+ 1513  vagrant ssh
+ 1514  sudo nano /etc/resolv.conf 
+ 1515  ping google.com
+ 1516  vd Vagrant/CentOS1
+ 1517  cd Vagrant/CentOS1
+ 1518  vagrant up
+ 1519  ip a
+ 1520  sudo apt-get remove docker-engine
+ 1521  sudo apt-get remove --auto-remove docker-engine
+ 1522  sudo apt-get purge docker-engine
+ 1523  sudo apt-get purge --auto-remove docker-engine
+ 1524  ip a
+ 1525  vagrant up
+ 1526  cd ..
+ 1527  cd CentOS2
+ 1528  vagrant up
+ 1529  cd ..
+ 1530  cd CentOS1
+ 1531  vagrant ssh
+ 1532  cd ..
+ 1533  cd CentOS2
+ 1534  vagrant ssh
+ 1535  sudo apt-get install shutter
+ 1536  cd Vagrant/CentOS1
+ 1537  vagrant up
+ 1538  cd ..
+ 1539  cd CentOS2
+ 1540  vagrant up
+ 1541  ip a
+ 1542  vagrant ssh
+ 1543  vagrant ssh
+ 1544  cd Vagrant/CentOS1
+ 1545  vagrant up
+ 1546  cd ..
+ 1547  cd CentOS
+ 1548  cd CentOS2
+ 1549  vagrant up
+ 1550  vagrant ssh
+ 1551  vagrant ssh
+ 1552  cd ..
+ 1553  cd CentOS2
+ 1554  vagrant up
+ 1555  cd Vagrant/CentOS1
+ 1556  vagrant up
+ 1557  cd ..
+ 1558  cd CentOS2
+ 1559  vagrant up
+ 1560  cd Vagrant/CentOS1
+ 1561  vagrant up
+ 1562  cd ..
+ 1563  cd CentOS1
+ 1564  vagrant ssh
+ 1565  ip a
+ 1566  ping 8.8.8.8
+ 1567  ip a
+ 1568  vagrant ssh
+ 1569  vagrant ssh
+ 1570  cd Vagrant/CentOS1
+ 1571  vagrant up
+ 1572  cd ..
+ 1573  cd CentOS2
+ 1574  vagrant up
+ 1575  cd ..
+ 1576  cd CentOS2
+ 1577  vagrant ssh
+ 1578  vi Vagrantfile 
+ 1579  cd CentOS2
+ 1580  vi Vagrantfile 
+ 1581  cd /home/greg/
+ 1582  ll
+ 1583  cd .ssh/
+ 1584  ll
+ 1585  cat known_hosts 
+ 1586  ping google.com
+ 1587  mc
+ 1588  sudo nano /etc/resolv.conf 
+ 1589  ping google.com
+ 1590  ip a
+ 1591  sudo service networking restart
+ 1592  sudo service network restart
+ 1593  cd Vagrant/CentOS1
+ 1594  vagrant ssh
+ 1595  cd ..
+ 1596  cd CentOS2
+ 1597  vagrant ssh
+ 1598  ping 8.8.8.8
+ 1599  vagrant ssh
+ 1600  cd ..
+ 1601  cd CentOS2
+ 1602  vagrant ssh
+ 1603  cd ..
+ 1604  cd CentOS2
+ 1605  vi Vagrantfile 
+ 1606  vagrant up
+ 1607  cd Vagrant/CentOS1
+ 1608  vi Vagrantfile 
+ 1609  vagrant up
+ 1610  ip a
+ 1611  echo JAVA_HOME
+ 1612  echo $JAVA_HOME
+ 1613  sudo apt-get install ant
+ 1614  path $ant
+ 1615  path $ANT
+ 1616  path $ANT_HOME
+ 1617  ant --version
+ 1618  ant -version
+ 1619  locate ant
+ 1620  mc
+ 1621  ant -version
+ 1622  mkdir ant
+ 1623  cd ant
+ 1624  touch build.xml
+ 1625  nano build.xml 
+ 1626  ant build.xml
+ 1627  sudo apt-get install openjdk-8-jdk
+ 1628  ant build.xml
+ 1629  ll
+ 1630  ant build.xml
+ 1631  nano build.xml 
+ 1632  nano build.xml info
+ 1633  nano build.xml
+ 1634  ant build.xml info
+ 1635  ant build.xml
+ 1636  ll
+ 1637  chmod 774 build.xml 
+ 1638  ant build.xml
+ 1639  ll
+ 1640  ant
+ 1641  ant info
+ 1642  build info2
+ 1643  ant info2
+ 1644  nano build.xml
+ 1645  ant info
+ 1646  nano build.xml
+ 1647  ant sitename
+ 1648  nano build.xml
+ 1649  ant sitename
+ 1650  nano build.xml
+ 1651  ant site
+ 1652  nano build.xml
+ 1653  ant site
+ 1654  nano build.xml
+ 1655  ant site
+ 1656  nano build.xml
+ 1657  ant site
+ 1658  nano build.xml
+ 1659  ant site
+ 1660  ant sitename
+ 1661  ant site
+ 1662  ant sitename
+ 1663  nano build.xml
+ 1664  touch build.properties
+ 1665  nano build.properties 
+ 1666  ant sitename2
+ 1667  nano build.xml
+ 1668  ant info3
+ 1669  nano build.properties 
+ 1670  nano build.xml
+ 1671  ant info
+ 1672  ant info3
+ 1673  apt-get install maven
+ 1674  sudo apt-get install maven
+ 1675  cd ..
+ 1676  cd ant
+ 1677  ll
+ 1678  cd ~/maven/
+ 1679  cp my-app ~/ant/
+ 1680  cp my-app/ ~/ant/
+ 1681  ll
+ 1682  cp my-app/ home/greg/ant/
+ 1683  sudo cp my-app/ home/greg/ant/
+ 1684  cp my-app/ /home/greg/ant/
+ 1685  cp my-app/ /home/greg/ant/my-app
+ 1686  cp my-app/ /home/greg/ant/my-app/
+ 1687  cd ~/ant/my-app/
+ 1688  ll
+ 1689  cd ..
+ 1690  ll
+ 1691  nano build.xml 
+ 1692  cd ~/maven/my-app/
+ 1693  ll
+ 1694  cd target/
+ 1695  ll
+ 1696  cd classes/
+ 1697  ll
+ 1698  cd co
+ 1699  cd com/
+ 1700  ll
+ 1701  cd mycompany/
+ 1702  ll
+ 1703  cd app
+ 1704  ll
+ 1705  cd ~/maven/my-app/
+ 1706  ll
+ 1707  cd target/
+ 1708  ll
+ 1709  java my-app-1.0-SNAPSHOT.jar
+ 1710  cd ..
+ 1711  java target/my-app-1.0-SNAPSHOT.jar
+ 1712  java -cp target/my-app-1.0-SNAPSHOT.jar
+ 1713  java -jar target/my-app-1.0-SNAPSHOT.jar 
+ 1714  ll
+ 1715  mkdir maven
+ 1716  cd maven
+ 1717  mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+ 1718  ll
+ 1719  cd my-app/
+ 1720  ll
+ 1721  cd src/
+ 1722  ll
+ 1723  cd ..
+ 1724  cd my-app/
+ 1725  nano pom.xml 
+ 1726  ll
+ 1727  cd src/main/java/
+ 1728  ll
+ 1729  cd com/
+ 1730  ll
+ 1731  cd mycompany/
+ 1732  ll
+ 1733  cd app
+ 1734  ll
+ 1735  nano App.java 
+ 1736  cd ~
+ 1737  cd maven/my-app/
+ 1738  mvn package
+ 1739  ll
+ 1740  cd target/
+ 1741  ll
+ 1742  java -cp my-app-1.0-SNAPSHOT.jar com.mycompany.app.Main
+ 1743  java -cp my-app-1.0-SNAPSHOT.jar com.mycompany.app
+ 1744  cd ..
+ 1745  java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app
+ 1746  jar tvf target/my-app-1.0-SNAPSHOT.jar 
+ 1747  java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+ 1748  ll
+ 1749  touch build.xml
+ 1750  nano build.xml 
+ 1751  cd ~/ant/my-app/
+ 1752  ant build-jar
+ 1753  ll
+ 1754  nano build.xml 
+ 1755  ant build-jar
+ 1756  ll
+ 1757  nano build.xml 
+ 1758  ant build-jar
+ 1759  ll
+ 1760  jar tvf my-app.jar 
+ 1761  java -cp my-app.jar com.mycompany.app
+ 1762  java -cp my-app.jar com.mycompany.app.Main
+ 1763  cd src/main/java/com/mycompany/app/
+ 1764  ll
+ 1765  cd ~
+ 1766  cd ant/my-app/
+ 1767  ll
+ 1768  java -cp my-app.jar com.mycompany.app.App
+ 1769  cd ..
+ 1770  jar tvf my-app.jar 
+ 1771  rm -rf my-app
+ 1772  ll
+ 1773  rm -rf my-app.jar 
+ 1774  rm -rf .build.xml.swp 
+ 1775  cd my-app/
+ 1776  touch build.xml
+ 1777  nano build.xml 
+ 1778  ant build-jar
+ 1779  nano build.xml 
+ 1780  ant build-jar
+ 1781  nano build.xml 
+ 1782  ant build-jar
+ 1783  nano build.xml 
+ 1784  ant build-jar
+ 1785  ll
+ 1786  jar tvf my-app.jar 
+ 1787  rm -rf my-app.jar 
+ 1788  nano build.xml 
+ 1789  ant build-jar
+ 1790  jar tvf my-app.jar 
+ 1791  ll
+ 1792  rm -rg my-app.jar 
+ 1793  rm -rf my-app.jar 
+ 1794  nano build.xml 
+ 1795  ant build-jar
+ 1796  jar tvf my-app.jar 
+ 1797  java -cp my-app.jar com.mycompany.app.App
+ 1798  rm -rf my-app.jar 
+ 1799  nano build.xml 
+ 1800  ant build-jar
+ 1801  jar tvf my-app.jar 
+ 1802  java -cp my-app.jar com.mycompany.app.App
+ 1803  nano build.xml 
+ 1804  rm -rf my-app.jar 
+ 1805  ant build-jar
+ 1806  jar tvf my-app.jar 
+ 1807  rm -rf my-app.jar 
+ 1808  nano build.xml 
+ 1809  ant build-jar
+ 1810  jar tvf my-app.jar 
+ 1811  rm -rf my-app.jar 
+ 1812  nano build.xml 
+ 1813  ant build-jar
+ 1814  jar tvf my-app.jar 
+ 1815  java -cp my-app.jar com.mycompany.app.App
+ 1816  java -cp my-app.jar com.mycompany.app.App.c;ass
+ 1817  java -cp my-app.jar com.mycompany.app.App.class
+ 1818  java -cp my-app.jar
+ 1819  java my-app.jar
+ 1820  jar tvf my-app.jar 
+ 1821  java -cp my-app.jar com.mycompany.app.App
+ 1822  java -cp my-app.jar com.mycompany.app.Main
+ 1823  nano build.xml 
+ 1824  rm -rf my-app.jar 
+ 1825  ant build-jar
+ 1826  jar tvf my-app.jar 
+ 1827  java -cp my-app.jar com.mycompany.app.App
+ 1828  java -h
+ 1829  java -jar my-app.jar
+ 1830  rm -rf my-app.jar 
+ 1831  nano build.xml 
+ 1832  ant build-jar
+ 1833  java -jar my-app.jar
+ 1834  ll
+ 1835  jar tvf my-app.jar 
+ 1836  rm -rf my-app.jar 
+ 1837  nano build.xml 
+ 1838  ant build-jar
+ 1839  jar tvf my-app.jar 
+ 1840  java -jar my-app.jar
+ 1841  cd maven/
+ 1842  ll
+ 1843  cd my-app/
+ 1844  ll
+ 1845  nano pom.xml 
+ 1846  cd target/
+ 1847  ll
+ 1848  cd ..
+ 1849  java -jar target/my-app-1.0-SNAPSHOT.jar 
+ 1850  java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+ 1851  cd ~/ant/hw/
+ 1852  mkdir src
+ 1853  md build\classes
+ 1854  mkdir build\classes
+ 1855  javac -sourcepath src -d build\classes src\oata\HelloWorld.java
+ 1856  javac -sourcepath src -d build/classes src/oata/HelloWorld.java
+ 1857  java -cp build/classes oata.HelloWorld
+ 1858  echo Main-Class: oata.HelloWorld>myManifest
+ 1859  jar cfm build/jar/HelloWorld.jar myManifest -C build/classes .
+ 1860  java -jar build/jar/HelloWorld.jar
+ 1861  ant compile
+ 1862  vi build
+ 1863  vi build.xml 
+ 1864  ant compile
+ 1865  ant jar
+ 1866  ant run
+ 1867  cd ..
+ 1868  cd ant/my-app/
+ 1869  ll
+ 1870  vi build.xml 
+ 1871  java -jar my-app.jar 
+ 1872  vi build.xml 
+ 1873  vi build.xml 
+ 1874  ant build-jar
+ 1875  ll
+ 1876  cd target/
+ 1877  ll
+ 1878  cd ..
+ 1879  vi build.xml 
+ 1880  ant compile
+ 1881  cd target/
+ 1882  ll
+ 1883  cd ..
+ 1884  vi build.xml 
+ 1885  ant compile
+ 1886  ll
+ 1887  java -jar my-app.jar 
+ 1888  cd target/
+ 1889  cd com/
+ 1890  ll
+ 1891  cd mycompany/
+ 1892  ll
+ 1893  cd app/
+ 1894  ll
+ 1895  cd ~/ant/my-app/
+ 1896  ll
+ 1897  rm -rf my-app.jar 
+ 1898  vi build.xml 
+ 1899  ant compile
+ 1900  vi build.xml 
+ 1901  ant compile
+ 1902  ll
+ 1903  rm -rf my-app.jar 
+ 1904  ant compile
+ 1905  ll
+ 1906  java -cp target/my-app.jar com.mycompany.app.App
+ 1907  java -jar target/my-app.jar 
+ 1908  vi build.xml 
+ 1909  ant compile
+ 1910  vi build.xml 
+ 1911  ant compile
+ 1912  vi build.xml 
+ 1913  ant compile
+ 1914  java -jar target/my-app.jar 
+ 1915  vi build.xml 
+ 1916  java -jar target/my-app.jar 
+ 1917  ant compile
+ 1918  java -jar target/my-app.jar 
+ 1919  vi build.xml 
+ 1920  ant compile
+ 1921  vi build.xml 
+ 1922  ant compile
+ 1923  java -jar target/my-app.jar 
+ 1924  vi build.xml 
+ 1925  ant compile
+ 1926  java -jar target/my-app.jar 
+ 1927  cd ..
+ 1928  cd hw
+ 1929  vi build.xml 
+ 1930  ./busybox
+ 1931  df -h
+ 1932  mc
+ 1933  sudo apt-get install cifs-utils
+ 1934  sudo mkdir /media/windowsshare
+ 1935  nano /etc/fstab
+ 1936  sudo nano /etc/fstab
+ 1937  sudo mount -a
+ 1938  sudo nano /etc/fstab
+ 1939  sudo mount -a
+ 1940  sudo nano /etc/fstab
+ 1941  ip a
+ 1942  mc
+ 1943  telnet 10.1.1.100 445
+ 1944  lspci -k | grep "Eth\|Net" -A2
+ 1945  ip a
+ 1946  gparted -v
+ 1947  sudo apt install gparted
+ 1948  fdisk -l
+ 1949  sudo fdisk -l
+ 1950  grep swap.*sw /etc/fstab
+ 1951  df ih
+ 1952  df -h
+ 1953  fdisk -l
+ 1954  sudo fdisk -l
+ 1955  df -h
+ 1956  sudo fdisk -l
+ 1957  grep swap.*sw /etc/fstab
+ 1958  sudo blkid | grep swap
+ 1959  sudo nano /etc/fstab
+ 1960  grep swap.*sw /etc/fstab
+ 1961  ping ukr.net
+ 1962  ip a
+ 1963  ping ukr.net
+ 1964  df -h
+ 1965  vagrant init opensky/windows-2008-r2-x64; vagrant up --provider virtualbox
+ 1966  ll | grep Vagrant
+ 1967  rm -rf Vagrantfile 
+ 1968  cd Vagrant/
+ 1969  ll
+ 1970  mkdir Win2K8R2
+ 1971  cd Win2K8R2/
+ 1972  vagrant init opensky/windows-2008-r2-x64; vagrant up --provider virtualbox
+ 1973  ll
+ 1974  cd .vagrant/
+ 1975  l
+ 1976  ll
+ 1977  cd machines/
+ 1978  ll
+ 1979  cd default/
+ 1980  ll
+ 1981  cd virtualbox/
+ 1982  ll
+ 1983  cd ~/Vagrant/Win2K8R2/
+ 1984  ll
+ 1985  rm -rf Vagrantfile 
+ 1986  vagrant init opensky/windows-2008-r2-x64; vagrant up --provider virtualbox
+ 1987  cd ..
+ 1988  rm -rf Win2K8R2/
+ 1989  mkdir Win2k8r2
+ 1990  cd Win2k8r2/
+ 1991  vagrant init opensky/windows-2008-r2-x64; vagrant up --provider virtualbox
+ 1992  ll
+ 1993  history > /home/greg/Git/DevOPS/Linux/history_last.txt
