@@ -1,0 +1,5 @@
+[App]
+App ansible_host=192.168.0.41 ansible_port=2222 ansible_become=true ansible_become_user=root
+
+[DB]
+DB ansible_host=192.168.0.42 ansible_port=2222 ansible_become=true ansible_become_user=root

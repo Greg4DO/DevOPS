@@ -1,0 +1,31 @@
+docker run \
+    -d \
+    --name zabbix-db \
+    --env="MARIADB_USER=zabbix" \
+    --env="MARIADB_PASS=P@ssw0rd" \
+    monitoringartist/zabbix-db-mariadb
+
+docker run \
+    -d \
+    --name zabbix \
+    -p 80:80 \
+    -p 10051:10051 \
+    -v /etc/localtime:/etc/localtime:ro \
+    --link zabbix-db:zabbix.db \
+    --env="ZS_DBHost=zabbix.db" \
+    --env="ZS_DBUser=zabbix" \
+    --env="ZS_DBPassword=P@ssw0rd" \
+    --env="XXL_zapix=true" \
+    --env="XXL_grapher=true" \
+    monitoringartist/zabbix-3.0-xxl:latest
+
+docker run \
+      --name=zabbix-agent-xxl \
+      -h `dockerhost` \
+      -p 10050:10050 \
+      -v /:/rootfs \
+      -v /var/run:/var/run \
+      -e "ZA_Server=192.168.99.100" \
+      -d monitoringartist/zabbix-agent-xxl-limited:latest
+
+docker rm -f zabbix; docker rm -f zabbix-db;

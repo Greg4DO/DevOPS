@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+ <project name="My App project" default="build-jar">
+<!--  <target name="build-jar">
+   <jar destfile="target/my-app.jar"
+        basedir="src">
+
+      <manifest>
+         <attribute name="Main-Class" value="com.mycompany.app.App"/>
+     </manifest>
+
+   </jar>
+  </target> -->
+  <target name="compile" 
+        description="compile the source">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="src" destdir="target"/>
+  </target>
+<target name="build-jar">
+   <jar destfile="target/my-app.jar"
+        basedir="target">
+
+      <manifest>
+         <attribute name="Main-Class" value="target.com.mycompany.app.App"/>
+     </manifest>
+
+   </jar>
+  </target>
+ </project>

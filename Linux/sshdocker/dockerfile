@@ -1,0 +1,14 @@
+FROM ubuntu:latest
+MAINTAINER Greg_S
+
+RUN apt update
+RUN apt -y install openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'root:P@ssw0rd' | chpasswd
+RUN sed - i 's/PermitRootLogin without-password/PermitLogin yes/' /etc/ssh/sshd_config
+
+ENV NOTVISIBLE "in user profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+EXPOSE 22:22055
+CMD ["/usr/sbin/sshd", "-D"]

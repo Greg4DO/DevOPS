@@ -1,0 +1,16 @@
+---
+- name: set apache pack
+  apt:
+    name: apache2
+    state: present
+
+- name: set mc pack
+  apt:
+    name: mc
+    state: present
+
+- name: starts apache
+  service:
+    name: apache2
+    state: started
+    enabled: yes

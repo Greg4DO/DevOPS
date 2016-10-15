@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+ <project name="Hello world project" default="info">
+ <property name="sitename" value="www.epam.com"/>
+ <property file="build.properties"/>
+ <target name="info" depends="info2">
+ <echo>Hello world - ANT!!!</echo>
+ </target>
+
+ <target name ="info2">
+ <echo>222</echo>
+ </target>
+ <target name="site">
+ <echo message="${sitename}" />
+ </target>
+ <target name="info3">
+      <echo>${sitename2} </echo>
+   </target>
+ </project>
